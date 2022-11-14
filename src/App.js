@@ -1,8 +1,17 @@
-//styles
-import styles from "./App.module.scss";
+import { Fragment } from "react";
+
+//components
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Fragment>
+      <header></header>
+      <main>
+        <Outlet />
+      </main>
+    </Fragment>
+  );
 }
 
 export default App;
