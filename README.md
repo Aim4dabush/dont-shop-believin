@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Don't Shop Believin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Deployed Site:
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Don't Shop Believin](#dont-shop-believin)
+  - [Table of Contents](#table-of-contents)
+  - [Screenshots](#screenshots)
+  - [Overview](#overview)
+    - [Goals](#goals)
+    - [What I Learned](#what-i-learned)
+  - [Tools](#tools)
+    - [Built With](#built-with)
+    - [Useful Resources](#useful-resources)
+  - [Author](#author)
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Create a full e-commerce website with all functionality except a payment method. It will include a cart page, checkout page, wishlist page, and user sign-up and login.
 
-### `npm test`
+### Goals
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- MVP
+  - Create a e-commerce multi-page application
+  - Redux state management
+  - Authentication
+  - AWS deployment
+  - Browse items
+  - Browse items by parameters
+  - Add items to a cart
+  - Checkout with subtotal and itemized receipt
+  - Add items to a wishlist
+  - View wishlist
+  - Accept a return with the receipt number
+- Stretch goals
+  - Mobile Friendly
+  - Use a database
+  - Animation
 
-### `npm run build`
+### What I Learned
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tools
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- DummyJSON
+- HTML 5
+- React Icons
+- React Router 6
+- Redux
+- Redux Toolkit
+- Sass
+- Firebase firestore
 
-### `npm run eject`
+### Useful Resources
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- DummyJSON: [https://dummyjson.com/](https://dummyjson.com/)
+- React Icons: [https://react-icons.github.io/react-icons/](https://react-icons.github.io/react-icons/)
+- React Router 6: [https://reactrouter.com/en/v6.3.0/getting-started/overview](https://reactrouter.com/en/v6.3.0/getting-started/overview)
+- Redux: [https://react-redux.js.org/](https://react-redux.js.org/)
+- Redux Toolkit: [https://redux-toolkit.js.org/](https://redux-toolkit.js.org/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Author
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Edward Arasato
+  - Github Profile:
+  - LinkedIn Profile:
+  - Profile Website:
