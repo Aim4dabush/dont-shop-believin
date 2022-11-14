@@ -1,0 +1,16 @@
+@import "./style-variables/variables.scss";
+
+body {
+  background-color: $primary;
+  color: $primary;
+  font-family: $merriweather;
+  font-weight: $regular;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
