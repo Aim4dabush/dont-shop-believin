@@ -1,0 +1,10 @@
+@import "../../../../style-variables/variables.scss";
+
+.navLink {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

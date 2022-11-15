@@ -5,7 +5,10 @@ import App from "../App";
 import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
 import Login from "../pages/Login/Login";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import Products from "../pages/Products/Products";
+import Return from "../pages/Return/Return";
 import SignUp from "../pages/SignUp/SignUp";
 import Welcome from "../pages/Welcome/Welcome";
 import WishList from "../pages/WishList/WishList";
@@ -18,7 +21,11 @@ const Paths = () => {
         <Route element={<Cart />} path="cart" />
         <Route element={<Checkout />} path="checkout" />
         <Route element={<Login />} path="login" />
-        <Route element={<Products />} path="products" />
+        <Route element={<PrivacyPolicy />} path="privacy-policy" />
+        <Route element={<Products />} path="products">
+          <Route element={<ProductDetail />} path="products/:id" />
+        </Route>
+        <Route element={<Return />} path="return" />
         <Route element={<SignUp />} path="signup" />
         <Route element={<WishList />} path="wishlist" />
       </Route>
