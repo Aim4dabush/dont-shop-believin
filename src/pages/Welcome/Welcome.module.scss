@@ -1,0 +1,41 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+
+  .card {
+    align-items: center;
+    background-color: $secondary;
+    box-shadow: 5px -5px 12px 1px $shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60%;
+    padding: 1.5em;
+    width: 40%;
+
+    .icon {
+      font-size: 60px;
+    }
+
+    .message {
+      text-align: center;
+
+      .brand {
+        color: $error;
+        font-style: italic;
+      }
+
+      .link {
+        color: $link;
+      }
+    }
+
+    .title {
+      text-decoration: underline;
+    }
+  }
+}
