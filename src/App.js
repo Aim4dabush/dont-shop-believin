@@ -1,12 +1,15 @@
 import { Fragment } from "react";
+import { Outlet } from "react-router-dom";
 
 //components
-import { Outlet } from "react-router-dom";
+import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
   return (
     <Fragment>
-      <header></header>
+      <header>
+        <NavBar />
+      </header>
       <main>
         <Outlet />
       </main>

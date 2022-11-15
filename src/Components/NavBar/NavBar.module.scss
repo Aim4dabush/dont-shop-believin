@@ -1,0 +1,13 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  background-color: $secondary;
+  box-shadow: 5px 0 15px 8px $shadow;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  padding: 0 1em;
+  position: fixed;
+  width: 100%;
+}
