@@ -1,6 +1,8 @@
 @import "../../../../style-variables/variables.scss";
 
 .navLink {
+  align-items: center;
+  display: flex;
   color: $primary;
   text-decoration: none;
 

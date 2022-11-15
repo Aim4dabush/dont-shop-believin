@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
 //components
+import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
       <main>
         <Outlet />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </Fragment>
   );
 }

@@ -1,0 +1,9 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  background-color: $secondary;
+  display: flex;
+  justify-content: space-evenly;
+  height: 200px;
+}

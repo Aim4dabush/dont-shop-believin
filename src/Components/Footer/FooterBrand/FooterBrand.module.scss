@@ -1,0 +1,12 @@
+@import "../../../style-variables/variables.scss";
+
+.brand {
+  align-items: center;
+  color: $primary;
+  display: flex;
+  text-decoration: none;
+
+  .icon {
+    margin: 0.25em;
+  }
+}

@@ -1,0 +1,14 @@
+@import "../../../../style-variables/variables.scss";
+
+.item {
+  padding: 0.5em 0;
+
+  .navLink {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

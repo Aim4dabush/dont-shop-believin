@@ -1,11 +1,17 @@
 @import "../../../style-variables/variables.scss";
 
 .brand {
+  align-items: center;
+  display: flex;
   color: $primary;
   font-size: 20px;
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  .icon {
+    margin-right: 0.25em;
   }
 }
