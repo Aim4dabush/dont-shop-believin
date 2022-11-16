@@ -1,0 +1,22 @@
+@import "../../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  background-color: $secondary;
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: center;
+  position: fixed;
+  transform: translateX(117%) translateY(115%);
+  width: 30%;
+  z-index: 2;
+
+  .btn {
+    background-color: $primary;
+    border: none;
+    border-radius: 5px;
+    color: $secondary;
+    padding: 1em 2em;
+  }
+}

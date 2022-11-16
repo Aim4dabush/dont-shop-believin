@@ -8,7 +8,7 @@ import FormInput from "./FormInput/FormInput";
 import { useValidation } from "../../../hooks/useValidation";
 
 //redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { newUserRegistration } from "../../../redux/thunks/registerThunk";
 
 //styles
