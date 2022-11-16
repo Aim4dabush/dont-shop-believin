@@ -17,6 +17,13 @@ const notifySlice = createSlice({
         isShown: action.payload.isShown,
       };
     },
+    setNotificationReset(state) {
+      state.notification = {
+        status: null,
+        message: null,
+        isShown: false,
+      };
+    },
   },
 });
 

@@ -1,0 +1,15 @@
+@import "../../../style-variables/variables.scss";
+
+.loginCard {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+    width: 100%;
+  }
+}

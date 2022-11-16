@@ -14,22 +14,10 @@ const Card = () => {
 
   const onClickHandler = () => {
     if (notification.status === "Success") {
-      dispatch(
-        notifyActions.setNotification({
-          status: null,
-          message: null,
-          isShown: false,
-        })
-      );
+      dispatch(notifyActions.setNotificationReset());
       navigate("/login", { replace: true });
     } else {
-      dispatch(
-        notifyActions.setNotification({
-          status: null,
-          message: null,
-          isShown: false,
-        })
-      );
+      dispatch(notifyActions.setNotificationReset());
     }
   };
 

@@ -1,15 +1,22 @@
 //components
 import { NavLink } from "react-router-dom";
 
+//redux
+import { useSelector } from "react-redux";
+
 //styles
 import styles from "./PageLink.module.scss";
 
 const PageLink = ({ children, link }) => {
+  const isAuth = useSelector((state) => state.auth.user.isAuth);
+
   return (
     <li>
-      <NavLink className={styles.navLink} to={link}>
-        {children}
-      </NavLink>
+      {isAuth && (
+        <NavLink className={styles.navLink} to={link}>
+          {children}
+        </NavLink>
+      )}
     </li>
   );
 };

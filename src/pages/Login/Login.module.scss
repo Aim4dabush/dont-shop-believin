@@ -1,0 +1,19 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  .card {
+    align-items: center;
+    background-color: $secondary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+    padding: 1em;
+    width: 40%;
+  }
+}
