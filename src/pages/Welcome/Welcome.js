@@ -16,8 +16,8 @@ const Welcome = () => {
           searchin in the night. Live to find the emotion somewhere in the
           night. Before you{" "}
           <span className={styles.brand}>Don't Shop Believin</span>, please{" "}
-          <NavLink className={styles.link} to="/signup">
-            sign-up
+          <NavLink className={styles.link} to="/register">
+            register
           </NavLink>{" "}
           for your free account. If you already have an account you can login{" "}
           <NavLink className={styles.link} to="/login">
