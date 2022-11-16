@@ -1,9 +1,16 @@
+@import "../../../../style-variables/variables.scss";
+
 .inputControl {
   align-items: center;
   display: flex;
   flex-direction: column;
   padding: 0.5em 0;
   width: 100%;
+
+  .errorMessage {
+    color: $error;
+    margin: 0;
+  }
 
   .inputStyle {
     border: none;

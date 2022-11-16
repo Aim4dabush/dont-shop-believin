@@ -11,5 +11,10 @@
     flex-direction: column;
     padding: 1em 0;
     width: 100%;
+
+    .error {
+      background-color: $error;
+      border-color: $error;
+    }
   }
 }
