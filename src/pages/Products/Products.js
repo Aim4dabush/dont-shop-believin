@@ -15,7 +15,9 @@ const Products = () => {
   const products = useSelector((state) => state.products.productsArr);
 
   useEffect(() => {
-    if (products.length === 0) dispatch(getProducts());
+    if (products.length === 0) {
+      dispatch(getProducts());
+    }
   }, [dispatch, products]);
 
   return (
