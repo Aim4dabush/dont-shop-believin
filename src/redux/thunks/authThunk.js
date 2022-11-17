@@ -6,17 +6,20 @@ import { authActions } from "../slices/authSlice";
 import { notifyActions } from "../slices/notifySlice";
 
 export const authLogin = (email, password) => {
-  return async (dispatch) => {
-    await signInWithEmailAndPassword(auth, email, password)
+  return (dispatch) => {
+    signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        if (res.user) {
-          localStorage.setItem("token", res.user.accessToken);
-          dispatch(
-            authActions.setUser({
-              id: res.user.uid,
-              token: localStorage.getItem("token"),
-            })
-          );
+        if (res) {
+          localStorage.setItem("user", res.user.uid);
+          res.user.getIdToken().then((token) => {
+            localStorage.setItem("token", token);
+            dispatch(
+              authActions.setUser({
+                id: localStorage.getItem("user"),
+                token: localStorage.getItem("token"),
+              })
+            );
+          });
         }
       })
       .catch((error) => {
@@ -34,15 +37,8 @@ export const authLogin = (email, password) => {
 export const authLogout = () => {
   return (dispatch) => {
     signOut(auth).then(() => {
-      localStorage.removeItem("token");
+      localStorage.clear();
       dispatch(authActions.setReset());
-      dispatch(
-        notifyActions.setNotification({
-          status: "Logout",
-          message: "You have been logged out!",
-          isShown: true,
-        })
-      );
     });
   };
 };

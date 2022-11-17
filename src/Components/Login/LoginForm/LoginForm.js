@@ -17,21 +17,21 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const isAuth = useSelector((state) => state.auth.user.isAuth);
+  const isAuth = useSelector((state) => state.auth.user.token);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
     dispatch(authLogin(emailRef.current.value, passwordRef.current.value));
-    // emailRef.current.value = "";
-    // passwordRef.current.value = "";
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
   };
 
   useEffect(() => {
     if (isAuth) {
       navigate("/products", { replace: true });
     }
-  }, [isAuth, navigate]);
+  }, [isAuth, dispatch, navigate]);
 
   return (
     <form className={styles.loginCard} onSubmit={onSubmitHandler}>
