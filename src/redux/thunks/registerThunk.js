@@ -5,8 +5,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { notifyActions } from "../slices/notifySlice";
 
 export const newUserRegistration = (email, password) => {
-  return async (dispatch) => {
-    await createUserWithEmailAndPassword(auth, email, password)
+  return (dispatch) => {
+    createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
         if (res.user) {
           dispatch(
