@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 //components
 import FormButton from "./FormButton/FormButton";
@@ -16,6 +17,7 @@ import styles from "./RegisterForm.module.scss";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
   const {
@@ -51,6 +53,7 @@ const RegisterForm = () => {
 
       emailReset();
       passwordReset();
+      navigate("/login", { replace: true });
     }
   };
 

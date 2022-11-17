@@ -1,6 +1,7 @@
 //components
 import { GiShop } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
+import ButtonWrapper from "../../Components/Welcome/ButtonWrapper/ButtonWrapper";
 
 //styles
 import styles from "./Welcome.module.scss";
@@ -25,6 +26,7 @@ const Welcome = () => {
           </NavLink>
           .
         </p>
+        <ButtonWrapper />
       </div>
     </section>
   );
