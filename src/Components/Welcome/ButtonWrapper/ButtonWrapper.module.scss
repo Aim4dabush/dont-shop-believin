@@ -3,13 +3,14 @@
 .buttonWrapper {
   display: flex;
   justify-content: center;
+  margin-top: 2em;
   width: 100%;
 
   .btn {
     background-color: $primary;
     border-radius: 5px;
     color: $secondary;
-    margin: 1em 2em;
+    margin: 0 2em;
     padding: 0.5em 3em;
     text-decoration: none;
 

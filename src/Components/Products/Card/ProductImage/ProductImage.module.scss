@@ -1,0 +1,15 @@
+@import "../../../../style-variables/variables.scss";
+
+.imageWrapper {
+  height: 200px;
+  width: 100%;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+  }
+}

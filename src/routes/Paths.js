@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 
 //components
 import App from "../App";
@@ -28,16 +28,13 @@ const Paths = () => {
         {isAuth && <Route element={<Checkout />} path="checkout" />}
         <Route element={<Login />} path="login" />
         <Route element={<PrivacyPolicy />} path="privacy-policy" />
-        {isAuth && (
-          <Route element={<Products />} path="products">
-            <Route element={<ProductDetail />} path="products/:id" />
-          </Route>
-        )}
+        {isAuth && <Route element={<Products />} exact path="products" />}
+        {isAuth && <Route element={<ProductDetail />} path="products/:id" />}
         <Route element={<Return />} path="return" />
         <Route element={<ShippingPolicy />} path="shipping-policy" />
         <Route element={<Register />} path="register" />
         {isAuth && <Route element={<WishList />} path="wishlist" />}
-        <Route element={<Welcome />} path="*" />
+        <Route element={<Navigate to="/" replace={true} />} path="*" />
       </Route>
     </Routes>
   );

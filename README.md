@@ -37,7 +37,12 @@ Create a full e-commerce website with all functionality except a payment method.
   - Accept a return with the receipt number
 - Stretch goals
   - Mobile Friendly
+  - Add change password
+  - Add change email
+  - Add forgot password functionality
   - Use a database
+  - Add sorting to product
+  - Add search for a product
   - Animation
 
 ### What I Learned
@@ -53,7 +58,8 @@ Create a full e-commerce website with all functionality except a payment method.
 - Redux
 - Redux Toolkit
 - Sass
-- Firebase firestore
+- Firebase Authentication
+- Firebase Firestore
 
 ### Useful Resources
 

@@ -1,0 +1,42 @@
+@import "../../../style-variables/variables.scss";
+
+.card {
+  align-items: center;
+  background-color: $secondary;
+  box-shadow: 2px -2px 8px 3px $shadow;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 1em;
+  padding: 0.5em;
+  width: 275px;
+
+  .btn {
+    background-color: $primary;
+    border: none;
+    border-radius: 2px;
+    color: $secondary;
+    font-weight: $semi;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+
+    &:hover {
+      background-color: $link;
+      text-decoration: underline;
+    }
+  }
+
+  .title {
+    color: $primary;
+    font-size: 20px;
+    font-weight: $semi;
+    margin-top: 1em;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      color: $link;
+      text-decoration: underline;
+    }
+  }
+}
