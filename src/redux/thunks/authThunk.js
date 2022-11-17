@@ -15,7 +15,6 @@ export const authLogin = (email, password) => {
             authActions.setUser({
               id: res.user.uid,
               token: localStorage.getItem("token"),
-              isAuth: true,
             })
           );
         }

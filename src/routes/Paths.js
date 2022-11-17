@@ -18,7 +18,7 @@ import WishList from "../pages/WishList/WishList";
 import { useSelector } from "react-redux";
 
 const Paths = () => {
-  const isAuth = useSelector((state) => state.auth.user.isAuth);
+  const isAuth = useSelector((state) => state.auth.user.token);
 
   return (
     <Routes>

@@ -20,7 +20,7 @@ import styles from "./LinkList.module.scss";
 const LinkList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isAuth = useSelector((state) => state.auth.user.isAuth);
+  const isAuth = useSelector((state) => state.auth.user.token);
 
   const onClickHandler = () => {
     dispatch(authLogout());

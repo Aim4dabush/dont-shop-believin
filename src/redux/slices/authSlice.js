@@ -6,7 +6,6 @@ const authSlice = createSlice({
     user: {
       id: null,
       token: null,
-      isAuth: false,
     },
   },
   reducers: {
@@ -14,14 +13,12 @@ const authSlice = createSlice({
       state.user = {
         id: null,
         token: null,
-        isAuth: false,
       };
     },
     setUser(state, action) {
       state.user = {
         id: action.payload.id,
         token: action.payload.token,
-        isAuth: action.payload.isAuth,
       };
     },
   },

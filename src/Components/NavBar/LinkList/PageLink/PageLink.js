@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import styles from "./PageLink.module.scss";
 
 const PageLink = ({ children, link }) => {
-  const isAuth = useSelector((state) => state.auth.user.isAuth);
+  const isAuth = useSelector((state) => state.auth.user.token);
 
   return (
     <li>
