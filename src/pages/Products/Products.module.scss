@@ -1,10 +1,14 @@
 .container {
-  height: 100vh;
+  display: flex;
+  height: fit-content;
+  padding-bottom: 9em;
   transform: translateY(100px);
+  width: 100%;
 
   .cardWrapper {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 2em;
+    justify-content: center;
+    width: 95%;
   }
 }

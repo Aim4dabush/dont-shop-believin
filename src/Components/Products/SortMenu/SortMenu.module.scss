@@ -1,0 +1,30 @@
+@import "../../../style-variables/variables.scss";
+
+.sortWrapper {
+  color: $secondary;
+  height: 800px;
+  left: 0;
+  margin: 0 1em;
+  overflow-y: scroll;
+  padding: 0.5em;
+  position: sticky;
+  top: 0;
+
+  .products {
+    font-weight: $bold;
+    margin-bottom: 1em;
+    padding: 0.5em 0.5em 0.5em 0;
+    text-decoration: underline;
+
+    &:hover {
+      background-color: $secondary;
+      color: $link;
+      cursor: pointer;
+    }
+  }
+
+  .title {
+    font-weight: $bold;
+    text-decoration: underline;
+  }
+}

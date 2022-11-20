@@ -10,6 +10,9 @@ const productsSlice = createSlice({
     setProductsArr(state, action) {
       state.productsArr.push(action.payload);
     },
+    setProductsReset(state) {
+      state.productsArr = [];
+    },
     setCategory(state, action) {
       state.category = action.payload;
     },

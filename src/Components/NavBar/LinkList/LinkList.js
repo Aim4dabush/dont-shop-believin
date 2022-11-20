@@ -21,8 +21,6 @@ const LinkList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.user.token);
-  const userId = useSelector((state) => state.auth.user.id);
-  console.log("Token", isAuth, "User", userId);
 
   const onClickHandler = () => {
     dispatch(authLogout());

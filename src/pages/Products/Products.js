@@ -2,10 +2,11 @@ import { useEffect } from "react";
 
 //components
 import Card from "../../Components/Products/Card/Card";
+import SortMenu from "../../Components/Products/SortMenu/SortMenu";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/thunks/productsThunk";
+import { getAllProducts } from "../../redux/thunks/productsThunk";
 
 //styles
 import styles from "./Products.module.scss";
@@ -16,12 +17,13 @@ const Products = () => {
 
   useEffect(() => {
     if (products.length === 0) {
-      dispatch(getProducts());
+      dispatch(getAllProducts());
     }
   }, [dispatch, products]);
 
   return (
     <div className={styles.container}>
+      <SortMenu />
       <div className={styles.cardWrapper}>
         {products.map((product) => {
           return <Card key={product.id} product={product} />;
