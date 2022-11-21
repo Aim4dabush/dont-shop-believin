@@ -7,12 +7,12 @@ export const getAllProducts = () => {
     await fetch("https://dummyjson.com/products?limit=100")
       .then((res) => res.json())
       .then((data) => {
+        dispatch(productsActions.setIsLoading(true));
         if (data) {
           dispatch(productsActions.setProductsReset());
-          data.products.forEach((product) => {
-            dispatch(productsActions.setProductsArr(product));
-          });
+          dispatch(productsActions.setProductsArr(data.products));
         }
+        dispatch(productsActions.setIsLoading(false));
       })
       .catch((error) => {
         dispatch(
@@ -22,21 +22,22 @@ export const getAllProducts = () => {
             isShown: true,
           })
         );
+        dispatch(productsActions.setIsLoading(false));
       });
   };
 };
 
-export const getProductByCategory = (category) => {
+export const getProductsByCategory = (category) => {
   return async (dispatch) => {
     await fetch(`https://dummyjson.com/products/category/${category}`)
       .then((res) => res.json())
       .then((data) => {
+        dispatch(productsActions.setIsLoading(true));
         if (data) {
           dispatch(productsActions.setProductsReset());
-          data.products.forEach((product) => {
-            dispatch(productsActions.setProductsArr(product));
-          });
+          dispatch(productsActions.setProductsArr(data.products));
         }
+        dispatch(productsActions.setIsLoading(false));
       })
       .catch((error) => {
         dispatch(
@@ -46,6 +47,7 @@ export const getProductByCategory = (category) => {
             isShown: true,
           })
         );
+        dispatch(productsActions.setIsLoading(false));
       });
   };
 };

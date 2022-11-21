@@ -14,6 +14,7 @@ import styles from "./Products.module.scss";
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.productsArr);
+  const isLoading = useSelector((state) => state.products.isLoading);
 
   useEffect(() => {
     if (products.length === 0) {
@@ -25,9 +26,11 @@ const Products = () => {
     <div className={styles.container}>
       <SortMenu />
       <div className={styles.cardWrapper}>
-        {products.map((product) => {
-          return <Card key={product.id} product={product} />;
-        })}
+        {isLoading && <p>...Loading</p>}
+        {!isLoading &&
+          products?.map((product) => {
+            return <Card key={product.id} product={product} />;
+          })}
       </div>
     </div>
   );

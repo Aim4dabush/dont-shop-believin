@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 //actions
 import { authActions } from "../slices/authSlice";
 import { notifyActions } from "../slices/notifySlice";
+import { productsActions } from "../slices/productsSlice";
 
 export const authLogin = (email, password) => {
   return (dispatch) => {
@@ -39,6 +40,7 @@ export const authLogout = () => {
     signOut(auth).then(() => {
       localStorage.clear();
       dispatch(authActions.setReset());
+      dispatch(productsActions.setProductsReset());
     });
   };
 };

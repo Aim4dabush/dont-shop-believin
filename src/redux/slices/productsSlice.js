@@ -5,10 +5,14 @@ const productsSlice = createSlice({
   initialState: {
     productsArr: [],
     category: "",
+    isLoading: false,
   },
   reducers: {
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
+    },
     setProductsArr(state, action) {
-      state.productsArr.push(action.payload);
+      state.productsArr = action.payload;
     },
     setProductsReset(state) {
       state.productsArr = [];

@@ -17,7 +17,7 @@ const CategorySort = () => {
       <Category category={"tops"}>Tops</Category>
       <Category category={"womens-dresses"}>Women's Dresses</Category>
       <Category category={"womens-shoes"}>Women's Shoes</Category>
-      <Category category={"mens-shirt"}>Men's Shirts</Category>
+      <Category category={"mens-shirts"}>Men's Shirts</Category>
       <Category category={"mens-shoes"}>Men's Shoes</Category>
       <Category category={"mens-watches"}>Men's Watches</Category>
       <Category category={"womens-watches"}>Women's Watches</Category>

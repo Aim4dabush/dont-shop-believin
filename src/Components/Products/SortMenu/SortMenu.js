@@ -1,4 +1,5 @@
 //components
+import AlphabetSort from "./AlphabetSort/AlphabetSort";
 import CategorySort from "./CategorySort/CategorySort";
 
 //redux
@@ -22,6 +23,8 @@ const SortMenu = () => {
       </p>
       <p className={styles.title}>Category</p>
       <CategorySort />
+      <p className={styles.title}>Alphabetical</p>
+      <AlphabetSort />
     </div>
   );
 };
