@@ -1,6 +1,7 @@
 //components
 import AlphabetSort from "./AlphabetSort/AlphabetSort";
 import CategorySort from "./CategorySort/CategorySort";
+import PriceSort from "./PriceSort/PriceSort";
 import RatingSort from "./RatingSort/RatingSort";
 
 //redux
@@ -22,10 +23,12 @@ const SortMenu = () => {
       <p className={styles.products} onClick={onClickHandler}>
         All Products
       </p>
-      <p className={styles.title}>Category</p>
-      <CategorySort />
       <p className={styles.title}>Alphabetical</p>
       <AlphabetSort />
+      <p className={styles.title}>Category</p>
+      <CategorySort />
+      <p className={styles.title}>Price</p>
+      <PriceSort />
       <p className={styles.title}>Rating</p>
       <RatingSort />
     </div>

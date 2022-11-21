@@ -6,10 +6,11 @@
   box-shadow: 2px -2px 8px 3px $shadow;
   display: flex;
   flex-direction: column;
-  height: 375px;
+  height: 400px;
+  justify-content: space-evenly;
   margin: 1em;
   padding: 0.5em;
-  width: 275px;
+  width: 300px;
 
   .btn {
     background-color: $primary;

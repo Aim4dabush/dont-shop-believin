@@ -1,0 +1,16 @@
+@import "../../../../../style-variables/variables.scss";
+
+.price {
+  padding: 0.5em 0.5em 0.5em 0;
+
+  &:hover {
+    background-color: $secondary;
+    color: $link;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .title {
+    width: fit-content;
+  }
+}
