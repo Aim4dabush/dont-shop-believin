@@ -1,0 +1,40 @@
+@import "../../../style-variables/variables.scss";
+
+.card {
+  background-color: $secondary;
+  color: $primary;
+  display: flex;
+
+  .mainWrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+
+    .description {
+      font-size: 20px;
+      margin-top: 2em;
+    }
+
+    .infoWrapper {
+      align-items: center;
+      display: flex;
+      justify-content: space-evenly;
+      margin: 2em;
+      width: 100%;
+    }
+
+    .line {
+      color: black;
+      height: 2px;
+      width: 100%;
+    }
+
+    .title {
+      font-size: 35px;
+      margin: 0;
+      text-decoration: underline;
+    }
+  }
+}

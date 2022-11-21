@@ -1,0 +1,21 @@
+@import "../../../../style-variables/variables.scss";
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+
+  .btn {
+    background-color: $primary;
+    border: none;
+    border-radius: 5px;
+    color: $secondary;
+    font-weight: $semi;
+    padding: 1em 1.5em;
+    text-transform: uppercase;
+
+    .icon {
+      margin-right: 0.25em;
+    }
+  }
+}
