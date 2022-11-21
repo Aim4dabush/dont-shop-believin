@@ -1,6 +1,7 @@
 //components
 import AlphabetSort from "./AlphabetSort/AlphabetSort";
 import CategorySort from "./CategorySort/CategorySort";
+import RatingSort from "./RatingSort/RatingSort";
 
 //redux
 import { useDispatch } from "react-redux";
@@ -25,6 +26,8 @@ const SortMenu = () => {
       <CategorySort />
       <p className={styles.title}>Alphabetical</p>
       <AlphabetSort />
+      <p className={styles.title}>Rating</p>
+      <RatingSort />
     </div>
   );
 };

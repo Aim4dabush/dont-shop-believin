@@ -1,21 +1,21 @@
 //component
-import Alphabet from "./Alphabet/Alphabet";
+import Rating from "./Rating/Rating";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { productsActions } from "../../../../redux/slices/productsSlice";
 
 //styles
-import styles from "./AlphabetSort.module.scss";
+import styles from "./RatingSort.module.scss";
 
-const AlphabetSort = () => {
+const RatingSort = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.productsArr);
 
-  const aZHandler = () => {
+  const lowerRatingOnClickHandler = () => {
     const newArr = [...products];
     const sort = newArr.sort((a, b) => {
-      if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      if (a.rating < b.rating) {
         return -1;
       }
       return 0;
@@ -23,10 +23,10 @@ const AlphabetSort = () => {
     dispatch(productsActions.setProductsArr(sort));
   };
 
-  const zAHandler = () => {
+  const higherRatingOnClickHandler = () => {
     const newArr = [...products];
     const sort = newArr.sort((a, b) => {
-      if (a.title.toLowerCase() > b.title.toLowerCase()) {
+      if (a.rating > b.rating) {
         return -1;
       }
       return 0;
@@ -35,11 +35,17 @@ const AlphabetSort = () => {
   };
 
   return (
-    <ul className={styles.alphabetWrapper}>
-      <Alphabet alphabet={"A-Z"} onClickHandler={aZHandler} />
-      <Alphabet alphabet={"Z-A"} onClickHandler={zAHandler} />
+    <ul className={styles.ratingWrapper}>
+      <Rating
+        onClickHandler={lowerRatingOnClickHandler}
+        rating={"Lower to Higher"}
+      />
+      <Rating
+        onClickHandler={higherRatingOnClickHandler}
+        rating={"Higher to Lower"}
+      />
     </ul>
   );
 };
 
-export default AlphabetSort;
+export default RatingSort;
