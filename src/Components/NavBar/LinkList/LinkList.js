@@ -22,6 +22,7 @@ const LinkList = () => {
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.user.token);
   const shopping = useSelector((state) => state.carts.shopping);
+  const wish = useSelector((state) => state.carts.wish);
 
   const onClickHandler = () => {
     dispatch(authLogout());
@@ -35,10 +36,11 @@ const LinkList = () => {
       </PageLink>
       <PageLink link={"/wishlist"}>
         <FaHeart className={styles.icon} /> Wish List
+        <span className={styles.size}>{wish.length}</span>
       </PageLink>
       <PageLink link={"/cart"}>
         <FaShoppingCart className={styles.icon} /> Cart
-        <span className={styles.cartSize}>{shopping.length}</span>
+        <span className={styles.size}>{shopping.length}</span>
       </PageLink>
       <PageLink link={"/checkout"}>
         <FaShoppingBag className={styles.icon} /> Checkout

@@ -13,7 +13,7 @@ const DetailButtons = () => {
   const shoppingCart = useSelector((state) => state.carts.shopping);
   const quantity = useSelector((state) => state.carts.quantity);
   const product = useSelector((state) => state.carts.product);
-  console.log(shoppingCart);
+  const wishList = useSelector((state) => state.carts.wish);
 
   const addCartHandler = () => {
     const item = shoppingCart.find((item) => {
@@ -22,7 +22,6 @@ const DetailButtons = () => {
     const index = shoppingCart.findIndex((item) => {
       return item.id === product.id;
     });
-    console.log(index, item);
 
     if (index === -1) {
       dispatch(
@@ -35,10 +34,9 @@ const DetailButtons = () => {
           title: product.title,
         })
       );
-      dispatch(cartsActions.setQuantityReset());
     } else {
       dispatch(
-        cartsActions.setReplaceProduct({
+        cartsActions.setReplaceShoppingProduct({
           index: index,
           product: {
             id: item.id,
@@ -51,14 +49,63 @@ const DetailButtons = () => {
         })
       );
     }
+    dispatch(cartsActions.setQuantityReset());
   };
+
+  const addWishHandler = () => {
+    const item = wishList.find((item) => {
+      return item.id === product.id;
+    });
+    const index = wishList.findIndex((item) => {
+      return item.id === product.id;
+    });
+
+    if (index === -1) {
+      dispatch(
+        cartsActions.setWish({
+          date: {
+            day: new Date().getDate(),
+            month: new Date().getMonth(),
+            year: new Date().getFullYear(),
+          },
+          id: product.id,
+          image: product.images[0],
+          price: product.price,
+          quantity: quantity,
+          rating: product.rating,
+          title: product.title,
+        })
+      );
+    } else {
+      dispatch(
+        cartsActions.setReplaceWishItem({
+          index: index,
+          product: {
+            date: {
+              day: new Date().getDate(),
+              month: new Date().getMonth(),
+              year: new Date().getFullYear(),
+            },
+            id: item.id,
+            image: item.image,
+            price: item.price,
+            quantity: item.quantity + quantity,
+            rating: item.rating,
+            title: item.title,
+          },
+        })
+      );
+    }
+    dispatch(cartsActions.setQuantityReset());
+  };
+
   return (
     <div className={styles.buttonWrapper}>
       <button className={styles.btn} onClick={addCartHandler}>
         <FaShoppingCart className={styles.icon} />
         Add to Cart
       </button>
-      <button className={styles.btn}>
+      <button className={styles.btn} onClick={addWishHandler}>
         <FaHeart className={styles.icon} />
         Add to Wishlist
       </button>

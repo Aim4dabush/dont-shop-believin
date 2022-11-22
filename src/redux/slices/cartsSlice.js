@@ -21,8 +21,11 @@ const cartsSlice = createSlice({
     setProduct(state, action) {
       state.product = action.payload;
     },
-    setReplaceProduct(state, action) {
+    setReplaceShoppingProduct(state, action) {
       state.shopping.splice(action.payload.index, 1, action.payload.product);
+    },
+    setReplaceWishItem(state, action) {
+      state.wish.splice(action.payload.index, 1, action.payload.product);
     },
     setShopping(state, action) {
       state.shopping.push(action.payload);
