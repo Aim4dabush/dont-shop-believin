@@ -2,6 +2,7 @@
 
 .card {
   background-color: $secondary;
+  box-shadow: 4px -4px 8px 3px $shadow;
   color: $primary;
   display: flex;
 

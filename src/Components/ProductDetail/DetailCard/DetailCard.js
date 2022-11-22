@@ -1,26 +1,13 @@
-import { useParams } from "react-router-dom";
-
 //components
 import DetailButtons from "./DetailButtons/DetailButtons";
 import DetailForm from "./DetailForm/DetailForm";
 import DetailImage from "./DetailImage/DetailImage";
 import DetailTags from "./DetailTags/DetailTags";
 
-//redux
-import { useSelector } from "react-redux";
-
 //styles
 import styles from "./DetailCard.module.scss";
 
-const DetailCard = () => {
-  const { id } = useParams();
-  const products = useSelector((state) => state.products.productsArr);
-
-  const product = products.find((product) => {
-    return product.id === parseInt(id);
-  });
-  console.log(product);
-
+const DetailCard = ({ product }) => {
   return (
     <div className={styles.card}>
       <DetailImage image={product.images[0]} title={product.title} />
