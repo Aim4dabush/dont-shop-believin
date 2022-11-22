@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { notifyActions } from "../../../redux/slices/notifySlice";
+import { modalActions } from "../../../redux/slices/modalSlice";
 
 //styles
 import styles from "./Card.module.scss";
@@ -10,14 +10,14 @@ import styles from "./Card.module.scss";
 const Card = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const notification = useSelector((state) => state.notify.notification);
+  const notification = useSelector((state) => state.modal.notification);
 
   const onClickHandler = () => {
     if (notification.status === "Success") {
-      dispatch(notifyActions.setNotificationReset());
+      dispatch(modalActions.setNotificationReset());
       navigate("/login", { replace: true });
     } else {
-      dispatch(notifyActions.setNotificationReset());
+      dispatch(modalActions.setNotificationReset());
     }
   };
 

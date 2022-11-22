@@ -1,11 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const notifySlice = createSlice({
-  name: "notify",
+const modalSlice = createSlice({
+  name: "modal",
   initialState: {
     notification: {
       status: null,
       message: null,
+      isShown: false,
+    },
+    productDetail: {
+      title: null,
       isShown: false,
     },
   },
@@ -24,9 +28,21 @@ const notifySlice = createSlice({
         isShown: false,
       };
     },
+    setProductDetail(state, action) {
+      state.productDetail = {
+        title: action.payload.title,
+        isShown: action.payload.isShown,
+      };
+    },
+    setProductDetailReset(state) {
+      state.productDetail = {
+        title: null,
+        isShown: false,
+      };
+    },
   },
 });
 
-export const notifyActions = notifySlice.actions;
+export const modalActions = modalSlice.actions;
 
-export default notifySlice.reducer;
+export default modalSlice.reducer;

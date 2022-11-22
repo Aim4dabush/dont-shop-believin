@@ -1,5 +1,5 @@
 //actions
-import { notifyActions } from "../slices/notifySlice";
+import { modalActions } from "../slices/modalSlice";
 import { productsActions } from "../slices/productsSlice";
 
 export const getAllProducts = () => {
@@ -15,7 +15,7 @@ export const getAllProducts = () => {
       })
       .catch((error) => {
         dispatch(
-          notifyActions.setNotification({
+          modalActions.setNotification({
             status: "Error",
             message: error.message,
             isShown: true,
@@ -39,7 +39,7 @@ export const getProductsByCategory = (category) => {
       })
       .catch((error) => {
         dispatch(
-          notifyActions.setNotification({
+          modalActions.setNotification({
             status: "Error",
             message: error.message,
             isShown: true,

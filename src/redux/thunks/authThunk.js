@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 //actions
 import { authActions } from "../slices/authSlice";
 import { cartsActions } from "../slices/cartsSlice";
-import { notifyActions } from "../slices/notifySlice";
+import { modalActions } from "../slices/modalSlice";
 import { productsActions } from "../slices/productsSlice";
 
 export const authLogin = (email, password) => {
@@ -26,7 +26,7 @@ export const authLogin = (email, password) => {
       })
       .catch((error) => {
         dispatch(
-          notifyActions.setNotification({
+          modalActions.setNotification({
             status: "Error",
             message: error.message,
             isShown: true,

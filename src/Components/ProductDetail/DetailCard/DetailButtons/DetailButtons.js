@@ -4,6 +4,7 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { cartsActions } from "../../../../redux/slices/cartsSlice";
+import { modalActions } from "../../../../redux/slices/modalSlice";
 
 //styles
 import styles from "./DetailButtons.module.scss";
@@ -49,6 +50,12 @@ const DetailButtons = () => {
         })
       );
     }
+    dispatch(
+      modalActions.setProductDetail({
+        title: "Cart",
+        isShown: true,
+      })
+    );
     dispatch(cartsActions.setQuantityReset());
   };
 
@@ -96,6 +103,12 @@ const DetailButtons = () => {
         })
       );
     }
+    dispatch(
+      modalActions.setProductDetail({
+        title: "Wish List",
+        isShown: true,
+      })
+    );
     dispatch(cartsActions.setQuantityReset());
   };
 

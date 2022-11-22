@@ -1,24 +1,23 @@
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
-//components
+//component
 import Card from "./Card/Card";
 import Overlay from "./Overlay/Overlay";
 
 //redux
 import { useSelector } from "react-redux";
 
-const Notification = () => {
-  const isShown = useSelector((state) => state.modal.notification.isShown);
-
+const DetailModal = () => {
+  const isShown = useSelector((state) => state.modal.productDetail.isShown);
   return (
     <Fragment>
       {isShown &&
-        ReactDOM.createPortal(<Card />, document.getElementById("notify"))}
-      {isShown &&
         ReactDOM.createPortal(<Overlay />, document.getElementById("overlay"))}
+      {isShown &&
+        ReactDOM.createPortal(<Card />, document.getElementById("detail"))}
     </Fragment>
   );
 };
 
-export default Notification;
+export default DetailModal;

@@ -2,7 +2,7 @@ import { auth } from "../../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 //actions
-import { notifyActions } from "../slices/notifySlice";
+import { modalActions } from "../slices/modalSlice";
 
 export const newUserRegistration = (email, password) => {
   return (dispatch) => {
@@ -10,7 +10,7 @@ export const newUserRegistration = (email, password) => {
       .then((res) => {
         if (res.user) {
           dispatch(
-            notifyActions.setNotification({
+            modalActions.setNotification({
               status: "Success",
               message: "Account has been created!",
               isShown: true,
@@ -20,7 +20,7 @@ export const newUserRegistration = (email, password) => {
       })
       .catch((error) => {
         dispatch(
-          notifyActions.setNotification({
+          modalActions.setNotification({
             status: "Error",
             message: error.message,
             isShown: true,
