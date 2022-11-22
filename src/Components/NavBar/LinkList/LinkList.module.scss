@@ -1,6 +1,21 @@
+@import "../../../style-variables/variables.scss";
+
 .list {
   display: flex;
   gap: 2em;
+
+  .cartSize {
+    align-items: center;
+    background-color: $primary;
+    border-radius: 50%;
+    color: $secondary;
+    display: flex;
+    font-weight: $bold;
+    height: 20px;
+    justify-content: center;
+    margin-left: 0.25em;
+    width: 20px;
+  }
 
   .icon {
     margin: 0.25em;

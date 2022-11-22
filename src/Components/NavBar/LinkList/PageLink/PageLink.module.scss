@@ -1,12 +1,16 @@
 @import "../../../../style-variables/variables.scss";
 
-.navLink {
+.navLinkWrapper {
   align-items: center;
   display: flex;
-  color: $primary;
-  text-decoration: none;
+  .navLink {
+    align-items: center;
+    display: flex;
+    color: $primary;
+    text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

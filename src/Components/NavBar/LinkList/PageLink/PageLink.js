@@ -11,7 +11,7 @@ const PageLink = ({ children, link }) => {
   const isAuth = useSelector((state) => state.auth.user.token);
 
   return (
-    <li>
+    <li className={styles.navLinkWrapper}>
       {isAuth && (
         <NavLink className={styles.navLink} to={link}>
           {children}

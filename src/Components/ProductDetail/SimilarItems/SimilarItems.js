@@ -7,11 +7,12 @@ import { useSelector } from "react-redux";
 //styles
 import styles from "./SimilarItems.module.scss";
 
-const SimilarItems = ({ product }) => {
+const SimilarItems = () => {
   const products = useSelector((state) => state.products.productsArr);
+  const product = useSelector((state) => state.carts.product);
 
   const items = products.filter((item) => {
-    return item.category === product.category;
+    return item.category === product?.category;
   });
 
   return (
