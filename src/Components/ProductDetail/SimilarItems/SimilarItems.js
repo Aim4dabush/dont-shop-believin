@@ -15,10 +15,14 @@ const SimilarItems = () => {
     return item.category === product?.category;
   });
 
+  const similar = items.filter((item) => {
+    return item.id !== product.id;
+  });
+
   return (
     <div className={styles.similarWrapper}>
-      {Array.isArray(items) &&
-        items.map((item) => {
+      {Array.isArray(similar) &&
+        similar.map((item) => {
           return (
             <SimilarCard
               id={item.id}
