@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 //component
-import Card from "./Card/Card";
-import Overlay from "./Overlay/Overlay";
+import DetailModalCard from "./DetailModalCard/DetailModalCard";
+import DetailOverlay from "./DetailOverlay/DetailOverlay";
 
 //redux
 import { useSelector } from "react-redux";
@@ -13,9 +13,15 @@ const DetailModal = () => {
   return (
     <Fragment>
       {isShown &&
-        ReactDOM.createPortal(<Overlay />, document.getElementById("overlay"))}
+        ReactDOM.createPortal(
+          <DetailOverlay />,
+          document.getElementById("overlay")
+        )}
       {isShown &&
-        ReactDOM.createPortal(<Card />, document.getElementById("detail"))}
+        ReactDOM.createPortal(
+          <DetailModalCard />,
+          document.getElementById("detail")
+        )}
     </Fragment>
   );
 };

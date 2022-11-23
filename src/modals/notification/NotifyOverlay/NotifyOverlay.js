@@ -1,8 +1,8 @@
 //styles
 import styles from "./Overlay.module.scss";
 
-const Overlay = () => {
+const NotifyOverlay = () => {
   return <div className={styles.overlay}></div>;
 };
 
-export default Overlay;
+export default NotifyOverlay;

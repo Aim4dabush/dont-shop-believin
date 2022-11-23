@@ -5,9 +5,9 @@ import ProductImage from "./ProductImage/ProductImage";
 import ProductInfo from "./ProductInfo/ProductInfo";
 
 //styles
-import styles from "./Card.module.scss";
+import styles from "./ProductCard.module.scss";
 
-const Card = ({ product }) => {
+const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const onClickHandler = () => {
@@ -39,4 +39,4 @@ const Card = ({ product }) => {
   );
 };
 
-export default Card;
+export default ProductCard;

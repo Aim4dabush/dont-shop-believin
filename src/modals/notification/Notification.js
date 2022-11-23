@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 //components
-import Card from "./Card/Card";
-import Overlay from "./Overlay/Overlay";
+import NotifyModalCard from "./NotifyModalCard/NotifyModalCard";
+import NotifyOverlay from "./NotifyOverlay/NotifyOverlay";
 
 //redux
 import { useSelector } from "react-redux";
@@ -14,9 +14,15 @@ const Notification = () => {
   return (
     <Fragment>
       {isShown &&
-        ReactDOM.createPortal(<Card />, document.getElementById("notify"))}
+        ReactDOM.createPortal(
+          <NotifyModalCard />,
+          document.getElementById("notify")
+        )}
       {isShown &&
-        ReactDOM.createPortal(<Overlay />, document.getElementById("overlay"))}
+        ReactDOM.createPortal(
+          <NotifyOverlay />,
+          document.getElementById("overlay")
+        )}
     </Fragment>
   );
 };

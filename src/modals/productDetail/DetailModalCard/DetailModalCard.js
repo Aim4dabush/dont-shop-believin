@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { modalActions } from "../../../redux/slices/modalSlice";
 
 //styles
-import styles from "./Card.module.scss";
+import styles from "./DetailModalCard.module.scss";
 
-const Card = () => {
+const DetailModalCard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const productDetail = useSelector((state) => state.modal.productDetail);
@@ -46,4 +46,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default DetailModalCard;

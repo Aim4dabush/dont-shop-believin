@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { modalActions } from "../../../redux/slices/modalSlice";
 
 //styles
-import styles from "./Card.module.scss";
+import styles from "./NotifyModalCard.module.scss";
 
-const Card = () => {
+const NotifyModalCard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const notification = useSelector((state) => state.modal.notification);
@@ -32,4 +32,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default NotifyModalCard;

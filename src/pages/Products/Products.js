@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 //components
-import Card from "../../Components/Products/Card/Card";
+import ProductCard from "../../Components/Products/ProductCard/ProductCard";
 import SortMenu from "../../Components/Products/SortMenu/SortMenu";
 
 //redux
@@ -38,7 +38,7 @@ const Products = () => {
         {isLoading && <p>...Loading</p>}
         {!isLoading &&
           products?.map((product) => {
-            return <Card key={product.id} product={product} />;
+            return <ProductCard key={product.id} product={product} />;
           })}
       </div>
     </div>
