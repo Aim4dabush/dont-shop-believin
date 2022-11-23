@@ -21,19 +21,22 @@ const SimilarItems = () => {
 
   return (
     <div className={styles.similarWrapper}>
-      {Array.isArray(similar) &&
-        similar.map((item) => {
-          return (
-            <SimilarCard
-              id={item.id}
-              image={item.images[0]}
-              key={item.id}
-              price={item.price}
-              rating={item.rating}
-              title={item.title}
-            />
-          );
-        })}
+      <h2>Similar Products</h2>
+      <div className={styles.productsWrapper}>
+        {Array.isArray(similar) &&
+          similar.map((item) => {
+            return (
+              <SimilarCard
+                id={item.id}
+                image={item.images[0]}
+                key={item.id}
+                price={item.price}
+                rating={item.rating}
+                title={item.title}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };
