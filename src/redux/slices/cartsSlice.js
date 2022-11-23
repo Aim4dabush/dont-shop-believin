@@ -16,7 +16,9 @@ const cartsSlice = createSlice({
   },
   reducers: {
     setDecrement(state, action) {
-      state.quantity = state.quantity - action.payload;
+      if (state.quantity > 1) {
+        state.quantity = state.quantity - action.payload;
+      }
     },
     setIncrement(state, action) {
       state.quantity = state.quantity + action.payload;

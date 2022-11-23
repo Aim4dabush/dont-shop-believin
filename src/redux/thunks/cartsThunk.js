@@ -1,6 +1,12 @@
 //firestore
 import { db } from "../../firebase/firebaseConfig";
-import { collection, doc, onSnapshot, setDoc } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
 
 //actions
 import { cartsActions } from "../slices/cartsSlice";
@@ -27,6 +33,22 @@ export const addWishListData = (id, data) => {
     const docRef = doc(db, `wish-list/${id}/items/${data.id}`);
 
     await setDoc(docRef, data).catch((error) => {
+      dispatch(
+        modalActions.setNotification({
+          status: "Error",
+          message: error.message,
+          isShown: true,
+        })
+      );
+    });
+  };
+};
+
+export const deleteWishListItem = (id, itemId) => {
+  return async (dispatch) => {
+    const docRef = doc(db, `wish-list/${id}/items/${itemId}`);
+
+    await deleteDoc(docRef).catch((error) => {
       dispatch(
         modalActions.setNotification({
           status: "Error",
@@ -74,14 +96,15 @@ export const getWishList = (id) => {
     const itemsRef = collection(db, `wish-list/${id}/items`);
 
     onSnapshot(itemsRef, (res) => {
-      if (res.empty) {
-        return;
-      }
       let arr = [];
-      res.docs.forEach((doc) => {
-        arr.push({ ...doc.data() });
-      });
-      dispatch(cartsActions.setWish(arr));
+      if (res.empty) {
+        dispatch(cartsActions.setWish(arr));
+      } else {
+        res.docs.forEach((doc) => {
+          arr.push({ ...doc.data() });
+        });
+        dispatch(cartsActions.setWish(arr));
+      }
     });
   };
 };
@@ -92,9 +115,8 @@ export const getWishListSize = (id) => {
 
     onSnapshot(itemsRef, (res) => {
       if (res.empty) {
-        return;
+        dispatch(cartsActions.setWishSize(res.size));
       }
-
       dispatch(cartsActions.setWishSize(res.size));
     });
   };

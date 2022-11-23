@@ -1,0 +1,36 @@
+@import "../../../style-variables/variables.scss";
+
+.card {
+  background-color: $secondary;
+  box-shadow: 2px -2px 8px 3px $shadow;
+  display: flex;
+  height: 200px;
+  margin-bottom: 0.5em;
+  padding: 1em;
+  width: 60%;
+
+  .mainWrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+
+    & h2 {
+      margin: 0;
+    }
+
+    .date {
+      font-style: italic;
+      text-align: end;
+      width: 100%;
+    }
+
+    .infoWrapper {
+      align-items: center;
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+  }
+}

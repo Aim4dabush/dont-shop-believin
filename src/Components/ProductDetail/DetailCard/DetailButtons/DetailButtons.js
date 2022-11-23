@@ -15,12 +15,11 @@ import styles from "./DetailButtons.module.scss";
 
 const DetailButtons = () => {
   const dispatch = useDispatch();
-  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
-  const quantity = useSelector((state) => state.carts.quantity);
   const product = useSelector((state) => state.carts.product);
-  const wishList = useSelector((state) => state.carts.wish.cart);
+  const quantity = useSelector((state) => state.carts.quantity);
+  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
   const user = useSelector((state) => state.auth.user.id);
-  console.log(shoppingCart);
+  const wishList = useSelector((state) => state.carts.wish.cart);
 
   const addCartHandler = () => {
     const item = shoppingCart.find((item) => {

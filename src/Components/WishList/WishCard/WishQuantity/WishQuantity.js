@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartsActions } from "../../../../redux/slices/cartsSlice";
 
 //styles
-import styles from "./DetailQuantity.module.scss";
+import styles from "./WishQuantity.module.scss";
 
-const DetailQuantity = () => {
+const WishQuantity = ({ title }) => {
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.carts.quantity);
 
-  const quantityChangeHandler = (count) => {
-    if (count === "increase") {
+  const onClickHandler = (command) => {
+    if (command === "increase") {
       dispatch(cartsActions.setIncrement(1));
     } else {
       dispatch(cartsActions.setDecrement(1));
@@ -18,25 +18,25 @@ const DetailQuantity = () => {
   };
 
   return (
-    <div className={styles.inputControl}>
-      <label htmlFor="quantity">Quantity</label>
+    <div>
+      <label htmlFor={title}>Quantity</label>
       <div>
         <button
-          className={styles.quantityOne}
-          onClick={() => quantityChangeHandler("decrease")}
+          className={styles.btnOne}
+          onClick={() => onClickHandler("decrease")}
         >
           -
         </button>
         <input
           className={styles.quantityInput}
-          id="quantity"
           type="number"
+          id={title}
           value={quantity}
           readOnly
         />
         <button
-          className={styles.quantityTwo}
-          onClick={() => quantityChangeHandler("increase")}
+          className={styles.btnTwo}
+          onClick={() => onClickHandler("increase")}
         >
           +
         </button>
@@ -45,4 +45,4 @@ const DetailQuantity = () => {
   );
 };
 
-export default DetailQuantity;
+export default WishQuantity;

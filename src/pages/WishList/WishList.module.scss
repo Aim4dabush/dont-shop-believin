@@ -1,0 +1,16 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 1em 9em 1em;
+  transform: translateY(100px);
+
+  & h1 {
+    color: $secondary;
+    margin: 0;
+    text-decoration: underline;
+  }
+}
