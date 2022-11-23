@@ -5,16 +5,22 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { cartsActions } from "../../../../redux/slices/cartsSlice";
 import { modalActions } from "../../../../redux/slices/modalSlice";
+import {
+  addShoppingData,
+  addWishListData,
+} from "../../../../redux/thunks/cartsThunk";
 
 //styles
 import styles from "./DetailButtons.module.scss";
 
 const DetailButtons = () => {
   const dispatch = useDispatch();
-  const shoppingCart = useSelector((state) => state.carts.shopping);
+  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
   const quantity = useSelector((state) => state.carts.quantity);
   const product = useSelector((state) => state.carts.product);
-  const wishList = useSelector((state) => state.carts.wish);
+  const wishList = useSelector((state) => state.carts.wish.cart);
+  const user = useSelector((state) => state.auth.user.id);
+  console.log(shoppingCart);
 
   const addCartHandler = () => {
     const item = shoppingCart.find((item) => {
@@ -25,30 +31,25 @@ const DetailButtons = () => {
     });
 
     if (index === -1) {
-      dispatch(
-        cartsActions.setShopping({
-          id: product.id,
-          image: product.images[0],
-          quantity: quantity,
-          price: product.price,
-          subTotal: quantity * product.price,
-          title: product.title,
-        })
-      );
+      const data = {
+        id: product.id,
+        image: product.images[0],
+        quantity: quantity,
+        price: product.price,
+        subTotal: quantity * product.price,
+        title: product.title,
+      };
+      dispatch(addShoppingData(user, data));
     } else {
-      dispatch(
-        cartsActions.setReplaceShoppingProduct({
-          index: index,
-          product: {
-            id: item.id,
-            image: item.image,
-            quantity: item.quantity + quantity,
-            price: item.price,
-            subTotal: (item.quantity + quantity) * item.price,
-            title: item.title,
-          },
-        })
-      );
+      const data = {
+        id: item.id,
+        image: item.image,
+        quantity: item.quantity + quantity,
+        price: item.price,
+        subTotal: (item.quantity + quantity) * item.price,
+        title: item.title,
+      };
+      dispatch(addShoppingData(user, data));
     }
     dispatch(
       modalActions.setProductDetail({
@@ -68,40 +69,35 @@ const DetailButtons = () => {
     });
 
     if (index === -1) {
-      dispatch(
-        cartsActions.setWish({
-          date: {
-            day: new Date().getDate(),
-            month: new Date().getMonth(),
-            year: new Date().getFullYear(),
-          },
-          id: product.id,
-          image: product.images[0],
-          price: product.price,
-          quantity: quantity,
-          rating: product.rating,
-          title: product.title,
-        })
-      );
+      const data = {
+        date: {
+          day: new Date().getDate(),
+          month: new Date().getMonth(),
+          year: new Date().getFullYear(),
+        },
+        id: product.id,
+        image: product.images[0],
+        price: product.price,
+        quantity: quantity,
+        rating: product.rating,
+        title: product.title,
+      };
+      dispatch(addWishListData(user, data));
     } else {
-      dispatch(
-        cartsActions.setReplaceWishItem({
-          index: index,
-          product: {
-            date: {
-              day: new Date().getDate(),
-              month: new Date().getMonth(),
-              year: new Date().getFullYear(),
-            },
-            id: item.id,
-            image: item.image,
-            price: item.price,
-            quantity: item.quantity + quantity,
-            rating: item.rating,
-            title: item.title,
-          },
-        })
-      );
+      const data = {
+        date: {
+          day: new Date().getDate(),
+          month: new Date().getMonth(),
+          year: new Date().getFullYear(),
+        },
+        id: item.id,
+        image: item.image,
+        price: item.price,
+        quantity: item.quantity + quantity,
+        rating: item.rating,
+        title: item.title,
+      };
+      dispatch(addWishListData(user, data));
     }
     dispatch(
       modalActions.setProductDetail({
