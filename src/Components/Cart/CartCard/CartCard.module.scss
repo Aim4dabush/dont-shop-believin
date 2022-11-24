@@ -16,23 +16,6 @@
     justify-content: space-evenly;
     width: 100%;
 
-    .btn {
-      align-items: center;
-      align-self: flex-end;
-      background-color: $primary;
-      border: none;
-      border-radius: 5px;
-      color: $secondary;
-      display: flex;
-      gap: 0.25em;
-      padding: 0.5em 1em;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-
     .infoWrapper {
       align-items: center;
       display: flex;

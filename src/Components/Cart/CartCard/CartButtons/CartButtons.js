@@ -1,18 +1,19 @@
 //components
-import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { cartsActions } from "../../../../redux/slices/cartsSlice";
 import {
   addShoppingData,
-  deleteWishListItem,
+  deleteShoppingItem,
 } from "../../../../redux/thunks/cartsThunk";
+import { cartsActions } from "../../../../redux/slices/cartsSlice";
 
 //styles
-import styles from "./WishButtons.module.scss";
+import styles from "./CartButtons.module.scss";
 
-const WishButtons = ({ product, quantity }) => {
+const CartButtons = ({ quantity, product }) => {
   const dispatch = useDispatch();
   const shoppingCart = useSelector((state) => state.carts.shopping.cart);
   const user = useSelector((state) => state.auth.user.id);
@@ -46,25 +47,23 @@ const WishButtons = ({ product, quantity }) => {
       };
       dispatch(addShoppingData(user, data));
     }
-    dispatch(deleteWishListItem(user, product.id));
     dispatch(cartsActions.setQuantityReset());
   };
 
   const deleteItemHandler = () => {
-    dispatch(deleteWishListItem(user, product.id));
+    dispatch(deleteShoppingItem(user, product.id));
   };
 
   return (
     <div className={styles.btnWrapper}>
+      <button className={styles.btn} onClick={addCartHandler}>
+        <GrUpdate /> Update
+      </button>
       <button className={styles.btn} onClick={deleteItemHandler}>
         <FaTrashAlt /> Remove
-      </button>
-      <button className={styles.btn} onClick={addCartHandler}>
-        <FaShoppingCart />
-        Add To Cart
       </button>
     </div>
   );
 };
 
-export default WishButtons;
+export default CartButtons;

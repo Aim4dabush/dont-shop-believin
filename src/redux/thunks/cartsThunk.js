@@ -44,6 +44,22 @@ export const addWishListData = (id, data) => {
   };
 };
 
+export const deleteShoppingItem = (id, itemId) => {
+  return async (dispatch) => {
+    const docRef = doc(db, `shopping/${id}/items/${itemId}`);
+
+    await deleteDoc(docRef).catch((error) => {
+      dispatch(
+        modalActions.setNotification({
+          status: "Error",
+          message: error.message,
+          isShown: true,
+        })
+      );
+    });
+  };
+};
+
 export const deleteWishListItem = (id, itemId) => {
   return async (dispatch) => {
     const docRef = doc(db, `wish-list/${id}/items/${itemId}`);

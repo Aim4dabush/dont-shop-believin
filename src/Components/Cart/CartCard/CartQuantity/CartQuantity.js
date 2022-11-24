@@ -1,16 +1,25 @@
-//redux
-import { useSelector } from "react-redux";
-
 //styles
 import styles from "./CartQuantity.module.scss";
 
-const CartQuantity = ({ title }) => {
-  const quantity = useSelector((state) => state.carts.quantity);
+const CartQuantity = ({ quantity, setItemQuantity, title }) => {
+  const onClickHandler = (command) => {
+    if (command === "increase") {
+      setItemQuantity((prev) => (prev = prev + 1));
+    } else {
+      setItemQuantity((prev) => (prev = prev - 1));
+    }
+  };
+
   return (
     <div>
       <label htmlFor={title}>Quantity</label>
       <div>
-        <button className={styles.btnOne}>-</button>
+        <button
+          className={styles.btnOne}
+          onClick={() => onClickHandler("decrease")}
+        >
+          -
+        </button>
         <input
           className={styles.quantityInput}
           type="number"
@@ -18,7 +27,12 @@ const CartQuantity = ({ title }) => {
           value={quantity}
           readonly
         />
-        <button className={styles.btnTwo}>+</button>
+        <button
+          className={styles.btnTwo}
+          onClick={() => onClickHandler("increase")}
+        >
+          +
+        </button>
       </div>
     </div>
   );
