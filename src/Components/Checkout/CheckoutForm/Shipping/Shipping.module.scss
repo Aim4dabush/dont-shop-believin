@@ -1,0 +1,70 @@
+@import "../../../../style-variables/variables.scss";
+
+.shipping {
+  align-items: center;
+  background-color: $secondary;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: center;
+  padding: 1em;
+  width: 60%;
+
+  & h2 {
+    margin-top: 0;
+  }
+
+  .inputControl {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      font-size: 20px;
+    }
+
+    &.wide {
+      margin: 0;
+      width: 100%;
+    }
+
+    .input {
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      justify-self: center;
+      padding: 0.5em;
+
+      &.email {
+        width: 400px;
+      }
+
+      &.fullName {
+        width: 400px;
+      }
+
+      &.street {
+        width: 84%;
+      }
+
+      &.zip {
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          appearance: none;
+        }
+
+        &[type="number"] {
+          appearance: none;
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+    width: 100%;
+  }
+}

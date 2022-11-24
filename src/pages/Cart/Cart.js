@@ -6,7 +6,10 @@ import CartSummary from "../../Components/Cart/CartSummary/CartSummary";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { getShoppingCart } from "../../redux/thunks/cartsThunk";
+import {
+  getShoppingCart,
+  getShoppingSize,
+} from "../../redux/thunks/cartsThunk";
 
 //styles
 import styles from "./Cart.module.scss";
@@ -17,7 +20,8 @@ const Cart = () => {
   const user = useSelector((state) => state.auth.user.id);
 
   useEffect(() => {
-    const unsub = dispatch(getShoppingCart(user));
+    const unsub =
+      (dispatch(getShoppingCart(user)), dispatch(getShoppingSize(user)));
 
     return () => unsub;
   }, [dispatch, user]);

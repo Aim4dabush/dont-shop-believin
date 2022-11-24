@@ -1,0 +1,45 @@
+.inputControl {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  & label {
+    font-size: 20px;
+  }
+
+  &.wide {
+    margin-bottom: 2em;
+    width: 100%;
+  }
+
+  .input {
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    justify-self: center;
+    padding: 0.5em;
+
+    &.email {
+      width: 400px;
+    }
+
+    &.fullName {
+      width: 400px;
+    }
+
+    &.street {
+      width: 84%;
+    }
+
+    &.zip {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        appearance: none;
+      }
+
+      &[type="number"] {
+        appearance: none;
+      }
+    }
+  }
+}

@@ -11,9 +11,13 @@ export const checkoutSlice = createSlice({
         zip: null,
       },
       card: {
+        name: null,
         number: null,
         exp: null,
       },
+      email: null,
+      name: null,
+      receipt: null,
       total: null,
     },
   },
@@ -28,8 +32,15 @@ export const checkoutSlice = createSlice({
     },
     setCard(state, action) {
       state.card = {
+        name: action.payload.name,
         number: action.payload.number,
         exp: action.payload.exp,
+      };
+    },
+    setInfo(state, action) {
+      state.order = {
+        email: action.payload.email,
+        name: action.payload.name,
       };
     },
     setOrderReset(state) {
@@ -41,11 +52,18 @@ export const checkoutSlice = createSlice({
           zip: null,
         },
         card: {
+          name: null,
           number: null,
           exp: null,
         },
+        email: null,
+        name: null,
+        receipt: null,
         total: null,
       };
+    },
+    setReceipt(state, action) {
+      state.order.receipt = action.payload;
     },
     setTotal(state, action) {
       state.order.total = action.payload;
