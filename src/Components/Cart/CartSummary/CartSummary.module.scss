@@ -1,0 +1,40 @@
+@import "../../../style-variables/variables.scss";
+
+.summary {
+  align-items: center;
+  background-color: $secondary;
+  box-shadow: 2px -2px 8px 3px $shadow;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 1em;
+  width: 20%;
+
+  & h4 {
+    margin-top: 0;
+    text-decoration: underline;
+  }
+
+  .wrapper {
+    width: 100%;
+
+    .title {
+      text-align: center;
+    }
+
+    .subTotal {
+      margin-top: 0.5em;
+    }
+  }
+
+  .btn {
+    background-color: $primary;
+    border: none;
+    border-radius: 5px;
+    color: $secondary;
+    font-size: 15px;
+    font-weight: $semi;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+  }
+}

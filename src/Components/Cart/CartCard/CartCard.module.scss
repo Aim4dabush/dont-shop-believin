@@ -1,0 +1,43 @@
+@import "../../../style-variables/variables.scss";
+
+.card {
+  background-color: $secondary;
+  box-shadow: 2px -2px 8px 3px $shadow;
+  display: flex;
+  height: 200px;
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 70%;
+
+  .mainWrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+
+    .btn {
+      align-items: center;
+      align-self: flex-end;
+      background-color: $primary;
+      border: none;
+      border-radius: 5px;
+      color: $secondary;
+      display: flex;
+      gap: 0.25em;
+      padding: 0.5em 1em;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    .infoWrapper {
+      align-items: center;
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+  }
+}
