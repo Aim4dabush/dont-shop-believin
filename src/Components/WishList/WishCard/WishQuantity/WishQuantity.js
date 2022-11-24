@@ -1,19 +1,12 @@
-//redux
-import { useDispatch, useSelector } from "react-redux";
-import { cartsActions } from "../../../../redux/slices/cartsSlice";
-
 //styles
 import styles from "./WishQuantity.module.scss";
 
-const WishQuantity = ({ title }) => {
-  const dispatch = useDispatch();
-  const quantity = useSelector((state) => state.carts.quantity);
-
+const WishQuantity = ({ quantity, setItemQuantity, title }) => {
   const onClickHandler = (command) => {
     if (command === "increase") {
-      dispatch(cartsActions.setIncrement(1));
+      setItemQuantity((prev) => (prev = prev + 1));
     } else {
-      dispatch(cartsActions.setDecrement(1));
+      setItemQuantity((prev) => (prev = prev - 1));
     }
   };
 

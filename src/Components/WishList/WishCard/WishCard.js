@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 //components
 import WishButtons from "./WishButtons/WishButtons";
 import WishImage from "./WishImage/WishImage";
@@ -7,6 +9,8 @@ import WishQuantity from "./WishQuantity/WishQuantity";
 import styles from "./WishCard.module.scss";
 
 const WishCard = ({ product }) => {
+  const [itemQuantity, setItemQuantity] = useState(product.quantity);
+
   return (
     <div className={styles.card}>
       <WishImage image={product.image} title={product.title} />
@@ -15,9 +19,13 @@ const WishCard = ({ product }) => {
         <div className={styles.infoWrapper}>
           <p>Rating: {product.rating}</p>
           <p>Price: {product.price}</p>
-          <WishQuantity title={product.title} />
+          <WishQuantity
+            quantity={itemQuantity}
+            setItemQuantity={setItemQuantity}
+            title={product.title}
+          />
         </div>
-        <WishButtons product={product} />
+        <WishButtons product={product} quantity={itemQuantity} />
         <p className={styles.date}>
           Added: {product.date.month}/{product.date.day}/{product.date.year}
         </p>

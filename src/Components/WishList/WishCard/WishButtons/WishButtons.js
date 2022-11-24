@@ -12,9 +12,8 @@ import {
 //styles
 import styles from "./WishButtons.module.scss";
 
-const WishButtons = ({ product }) => {
+const WishButtons = ({ product, quantity }) => {
   const dispatch = useDispatch();
-  const quantity = useSelector((state) => state.carts.quantity);
   const shoppingCart = useSelector((state) => state.carts.shopping.cart);
   const user = useSelector((state) => state.auth.user.id);
 
