@@ -7,31 +7,17 @@ import { useValidation } from "../../../../hooks/useValidation";
 //styles
 import styles from "./Payment.module.scss";
 
-const Payment = ({ cardRef, companyRef, expRef, nameRef }) => {
+const Payment = (props) => {
+  const { card, cardError, cardValue, cardOnBlur, cardOnChange } = props.card;
   const {
-    value: cardValue,
-    error: cardError,
-    handleOnBlur: cardOnBlur,
-    handleOnChange: cardOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: companyValue,
-    error: companyError,
-    handleOnBlur: companyOnBlur,
-    handleOnChange: companyOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: expValue,
-    error: expError,
-    handleOnBlur: expOnBlur,
-    handleOnChange: expOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: nameValue,
-    error: nameError,
-    handleOnBlur: nameOnBlur,
-    handleOnChange: nameOnChange,
-  } = useValidation((value) => value.trim() !== "");
+    company,
+    companyError,
+    companyValue,
+    companyOnBlur,
+    companyOnChange,
+  } = props.company;
+  const { exp, expError, expValue, expOnBlur, expOnChange } = props.exp;
+  const { name, nameError, nameValue, nameOnBlur, nameOnChange } = props.name;
 
   const cardClassName = cardError ? styles.error : null;
   const companyClassName = companyError ? styles.error : null;
@@ -49,7 +35,7 @@ const Payment = ({ cardRef, companyRef, expRef, nameRef }) => {
         handleOnBlur={nameOnBlur}
         handleOnChange={nameOnChange}
         id={"name"}
-        inputRef={nameRef}
+        inputRef={name}
         inputStyle={styles.name}
         type={"text"}
         value={nameValue}
@@ -65,7 +51,7 @@ const Payment = ({ cardRef, companyRef, expRef, nameRef }) => {
           handleOnBlur={cardOnBlur}
           handleOnChange={cardOnChange}
           id={"number"}
-          inputRef={cardRef}
+          inputRef={card}
           inputStyle={styles.creditCard}
           type={"number"}
           value={cardValue}
@@ -80,7 +66,7 @@ const Payment = ({ cardRef, companyRef, expRef, nameRef }) => {
             name="company"
             onBlur={companyOnBlur}
             onChange={companyOnChange}
-            ref={companyRef}
+            ref={company}
             value={companyValue}
           >
             <option value="MA">MasterCard</option>
@@ -100,7 +86,7 @@ const Payment = ({ cardRef, companyRef, expRef, nameRef }) => {
           handleOnBlur={expOnBlur}
           handleOnChange={expOnChange}
           id={"exp"}
-          inputRef={expRef}
+          inputRef={exp}
           inputStyle={styles.date}
           type={"date"}
           value={expValue}

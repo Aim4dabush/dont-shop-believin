@@ -1,56 +1,25 @@
 //components
 import ShippingInput from "./ShippingInput/ShippingInput";
 
-//hooks
-import { useValidation } from "../../../../hooks/useValidation";
-
 //styles
 import styles from "./Shipping.module.scss";
 
-const Shipping = ({
-  cityRef,
-  emailRef,
-  fullNameRef,
-  stateRef,
-  streetRef,
-  zipRef,
-}) => {
+const Shipping = (props) => {
+  const { city, cityError, cityOnBlur, cityOnChange, cityValue } = props.city;
+  const { email, emailError, emailOnBlur, emailOnChange, emailValue } =
+    props.email;
   const {
-    value: cityValue,
-    error: cityError,
-    handleOnBlur: cityOnBlur,
-    handleOnChange: cityOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: emailValue,
-    error: emailError,
-    handleOnBlur: emailOnBlur,
-    handleOnChange: emailOnChange,
-  } = useValidation((value) => value.includes("@"));
-  const {
-    value: fullNameValue,
-    error: fullNameError,
-    handleOnBlur: fullNameOnBlur,
-    handleOnChange: fullNameOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: stateValue,
-    error: stateError,
-    handleOnBlur: stateOnBlur,
-    handleOnChange: stateOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: streetValue,
-    error: streetError,
-    handleOnBlur: streetOnBlur,
-    handleOnChange: streetOnChange,
-  } = useValidation((value) => value.trim() !== "");
-  const {
-    value: zipValue,
-    error: zipError,
-    handleOnBlur: zipOnBlur,
-    handleOnChange: zipOnChange,
-  } = useValidation((value) => value.trim() !== "");
+    fullName,
+    fullNameError,
+    fullNameOnBlur,
+    fullNameOnChange,
+    fullNameValue,
+  } = props.fullName;
+  const { state, stateError, stateOnBlur, stateOnChange, stateValue } =
+    props.state;
+  const { street, streetError, streetOnBlur, streetOnChange, streetValue } =
+    props.street;
+  const { zip, zipError, zipOnBlur, zipOnChange, zipValue } = props.zip;
 
   const cityClassName = cityError ? styles.error : null;
   const emailClassName = emailError ? styles.error : null;
@@ -70,7 +39,7 @@ const Shipping = ({
           errorStyle={fullNameClassName}
           handleOnBlur={fullNameOnBlur}
           handleOnChange={fullNameOnChange}
-          inputRef={fullNameRef}
+          inputRef={fullName}
           inputStyleOne={styles.input}
           inputStyleTwo={styles.fullName}
           id={"name"}
@@ -86,7 +55,7 @@ const Shipping = ({
           errorStyle={emailClassName}
           handleOnBlur={emailOnBlur}
           handleOnChange={emailOnChange}
-          inputRef={emailRef}
+          inputRef={email}
           inputStyleOne={styles.input}
           inputStyleTwo={styles.email}
           id={"email"}
@@ -104,7 +73,7 @@ const Shipping = ({
         errorStyle={streetClassName}
         handleOnBlur={streetOnBlur}
         handleOnChange={streetOnChange}
-        inputRef={streetRef}
+        inputRef={street}
         inputStyleOne={styles.input}
         inputStyleTwo={styles.street}
         id={"street"}
@@ -121,7 +90,7 @@ const Shipping = ({
           errorStyle={cityClassName}
           handleOnBlur={cityOnBlur}
           handleOnChange={cityOnChange}
-          inputRef={cityRef}
+          inputRef={city}
           inputStyleOne={styles.input}
           id={"city"}
           type={"text"}
@@ -134,7 +103,7 @@ const Shipping = ({
           <select
             className={`${styles.input} ${stateClassName}`}
             id="state"
-            ref={stateRef}
+            ref={state}
             name="state"
             onBlur={stateOnBlur}
             onChange={stateOnChange}
@@ -202,7 +171,7 @@ const Shipping = ({
           errorStyle={zipClassName}
           handleOnBlur={zipOnBlur}
           handleOnChange={zipOnChange}
-          inputRef={zipRef}
+          inputRef={zip}
           inputStyleOne={styles.input}
           inputStyleTwo={styles.zip}
           id={"zip"}
