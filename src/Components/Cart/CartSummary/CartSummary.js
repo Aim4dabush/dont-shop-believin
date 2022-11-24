@@ -1,15 +1,25 @@
+import { useNavigate } from "react-router-dom";
+
 //redux
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { checkoutActions } from "../../../redux/slices/checkoutSlice";
 
 //styles
 import styles from "./CartSummary.module.scss";
 
 const CartSummary = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const shoppingCart = useSelector((state) => state.carts.shopping.cart);
 
   const total = shoppingCart.reduce((value, item) => {
     return value + item.subTotal;
   }, 0);
+
+  const onClickHandler = () => {
+    dispatch(checkoutActions.setTotal(total));
+    navigate("/checkout", { replace: true });
+  };
 
   return (
     <div className={styles.summary}>
@@ -25,7 +35,9 @@ const CartSummary = () => {
           );
         })}
       <p>Total: ${total}</p>
-      <button className={styles.btn}>Checkout</button>
+      <button className={styles.btn} onClick={onClickHandler}>
+        Checkout
+      </button>
     </div>
   );
 };
