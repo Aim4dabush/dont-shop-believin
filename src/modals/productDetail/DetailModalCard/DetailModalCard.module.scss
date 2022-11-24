@@ -32,16 +32,13 @@
         color: $secondary;
         font-weight: $semi;
         padding: 1em 2em;
+        text-transform: capitalize;
 
         &:hover {
           cursor: pointer;
           text-decoration: underline;
         }
       }
-    }
-
-    .title {
-      text-transform: lowercase;
     }
   }
 }

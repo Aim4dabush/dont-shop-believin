@@ -52,7 +52,7 @@ const DetailButtons = () => {
     }
     dispatch(
       modalActions.setProductDetail({
-        title: "Cart",
+        title: "cart",
         isShown: true,
       })
     );

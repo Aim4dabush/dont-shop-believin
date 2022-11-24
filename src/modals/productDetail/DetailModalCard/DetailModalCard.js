@@ -30,8 +30,7 @@ const DetailModalCard = () => {
     <div className={styles.container}>
       <div className={styles.card}>
         <p>
-          Would you like to continue shopping or go to{" "}
-          <span className={styles.title}>{productDetail.title}</span>?
+          Would you like to continue shopping or go to {productDetail.title}?
         </p>
         <div className={styles.buttonWrapper}>
           <button className={styles.btn} onClick={continueShoppingHandler}>
