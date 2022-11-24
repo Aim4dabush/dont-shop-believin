@@ -10,18 +10,18 @@ const Shipping = () => {
       <h2>Shipping</h2>
       <div className={styles.wrapper}>
         <ShippingInput
-          classControlOne={styles.inputControl}
-          classStyleOne={styles.input}
-          classStyleTwo={styles.fullName}
+          controlStyleOne={styles.inputControl}
+          inputStyleOne={styles.input}
+          inputStyleTwo={styles.fullName}
           id={"name"}
           type={"text"}
         >
           Full Name
         </ShippingInput>
         <ShippingInput
-          classControlOne={styles.inputControl}
-          classStyleOne={styles.input}
-          classStyleTwo={styles.email}
+          controlStyleOne={styles.inputControl}
+          inputStyleOne={styles.input}
+          inputStyleTwo={styles.email}
           id={"email"}
           type={"email"}
         >
@@ -29,10 +29,10 @@ const Shipping = () => {
         </ShippingInput>
       </div>
       <ShippingInput
-        classControlOne={styles.inputControl}
-        classControlTwo={styles.wide}
-        classStyleOne={styles.input}
-        classStyleTwo={styles.street}
+        controlStyleOne={styles.inputControl}
+        controlStyleTwo={styles.wide}
+        inputStyleOne={styles.input}
+        inputStyleTwo={styles.street}
         id={"street"}
         type={"text"}
       >
@@ -40,8 +40,8 @@ const Shipping = () => {
       </ShippingInput>
       <div className={styles.wrapper}>
         <ShippingInput
-          classControlOne={styles.inputControl}
-          classStyleOne={styles.input}
+          controlStyleOne={styles.inputControl}
+          inputStyleOne={styles.input}
           id={"city"}
           type={"text"}
         >
@@ -103,9 +103,9 @@ const Shipping = () => {
           </select>
         </div>
         <ShippingInput
-          classControlOne={styles.inputControl}
-          classStyleOne={styles.input}
-          classStyleTwo={styles.zip}
+          controlStyleOne={styles.inputControl}
+          inputStyleOne={styles.input}
+          inputStyleTwo={styles.zip}
           id={"zip"}
           type={"number"}
         >

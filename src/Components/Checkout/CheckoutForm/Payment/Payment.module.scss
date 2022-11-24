@@ -1,0 +1,102 @@
+@import "../../../../style-variables/variables.scss";
+
+.payment {
+  align-items: center;
+  background-color: $secondary;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: space-evenly;
+  margin-top: 1em;
+  padding: 2em;
+  width: 60%;
+
+  & h2 {
+    margin-top: 0;
+    font-size: 30px;
+  }
+
+  .inputControl {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & label {
+      font-size: 20px;
+    }
+
+    .name {
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      padding: 0.5em;
+      width: 100%;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 1em;
+    margin-top: 2em;
+    width: 100%;
+
+    .cardControl {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      & label {
+        font-size: 20px;
+      }
+
+      .creditCard {
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        padding: 0.5em;
+        width: 100%;
+      }
+    }
+
+    .companyControl {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+
+      & label {
+        font-size: 20px;
+      }
+
+      .company {
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        padding: 0.5em;
+        width: 100%;
+      }
+    }
+
+    .dateControl {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+
+      & label {
+        font-size: 20px;
+      }
+
+      .date {
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        padding: 0.5em;
+        width: 100%;
+      }
+    }
+  }
+}

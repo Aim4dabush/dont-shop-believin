@@ -1,24 +1,21 @@
-//styles
-import styles from "./ShippingInput.module.scss";
-
 const ShippingInput = ({
   children,
-  classControlOne,
-  classControlTwo,
-  classStyleOne,
-  classStyleTwo,
+  controlStyleOne,
+  controlStyleTwo,
+  inputStyleOne,
+  inputStyleTwo,
   id,
   type,
 }) => {
   return (
     <div
-      className={`${classControlOne} ${
-        classControlTwo ? classControlTwo : null
+      className={`${controlStyleOne} ${
+        controlStyleTwo ? controlStyleTwo : null
       }`}
     >
       <label htmlFor={id}>{children}</label>
       <input
-        className={`${classStyleOne} ${classStyleTwo ? classStyleTwo : null}`}
+        className={`${inputStyleOne} ${inputStyleTwo ? inputStyleTwo : null}`}
         id={id}
         name={id}
         type={type}

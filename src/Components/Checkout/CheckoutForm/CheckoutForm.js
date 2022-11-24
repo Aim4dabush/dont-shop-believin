@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 //component
+import Payment from "./Payment/Payment";
 import Shipping from "./Shipping/Shipping";
 
 //styles
@@ -15,6 +16,7 @@ const CheckoutForm = () => {
   return (
     <form className={styles.container} onSubmit={onSubmitHandler} ref={form}>
       <Shipping />
+      <Payment />
       <button className={styles.btn}>Submit</button>
     </form>
   );
