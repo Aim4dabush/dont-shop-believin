@@ -17,6 +17,11 @@
     font-size: 30px;
   }
 
+  .error {
+    background-color: $error;
+    border-color: $error;
+  }
+
   .inputControl {
     align-items: center;
     display: flex;
@@ -77,6 +82,10 @@
         font-size: 20px;
         padding: 0.5em;
         width: 100%;
+      }
+
+      .errorText {
+        color: $error;
       }
     }
 

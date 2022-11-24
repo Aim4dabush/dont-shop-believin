@@ -25,7 +25,7 @@ const CartQuantity = ({ quantity, setItemQuantity, title }) => {
           type="number"
           id={title}
           value={quantity}
-          readonly
+          readOnly
         />
         <button
           className={styles.btnTwo}

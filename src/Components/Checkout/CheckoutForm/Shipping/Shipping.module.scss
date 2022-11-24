@@ -16,6 +16,11 @@
     font-size: 30px;
   }
 
+  .error {
+    background-color: $error;
+    border-color: $error;
+  }
+
   .inputControl {
     align-items: center;
     display: flex;

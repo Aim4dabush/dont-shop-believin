@@ -1,29 +1,97 @@
 //components
 import ShippingInput from "./ShippingInput/ShippingInput";
 
+//hooks
+import { useValidation } from "../../../../hooks/useValidation";
+
 //styles
 import styles from "./Shipping.module.scss";
 
-const Shipping = () => {
+const Shipping = ({
+  cityRef,
+  emailRef,
+  fullNameRef,
+  stateRef,
+  streetRef,
+  zipRef,
+}) => {
+  const {
+    value: cityValue,
+    error: cityError,
+    handleOnBlur: cityOnBlur,
+    handleOnChange: cityOnChange,
+  } = useValidation((value) => value.trim() !== "");
+  const {
+    value: emailValue,
+    error: emailError,
+    handleOnBlur: emailOnBlur,
+    handleOnChange: emailOnChange,
+  } = useValidation((value) => value.includes("@"));
+  const {
+    value: fullNameValue,
+    error: fullNameError,
+    handleOnBlur: fullNameOnBlur,
+    handleOnChange: fullNameOnChange,
+  } = useValidation((value) => value.trim() !== "");
+  const {
+    value: stateValue,
+    error: stateError,
+    handleOnBlur: stateOnBlur,
+    handleOnChange: stateOnChange,
+  } = useValidation((value) => value.trim() !== "");
+  const {
+    value: streetValue,
+    error: streetError,
+    handleOnBlur: streetOnBlur,
+    handleOnChange: streetOnChange,
+  } = useValidation((value) => value.trim() !== "");
+  const {
+    value: zipValue,
+    error: zipError,
+    handleOnBlur: zipOnBlur,
+    handleOnChange: zipOnChange,
+  } = useValidation((value) => value.trim() !== "");
+
+  const cityClassName = cityError ? styles.error : null;
+  const emailClassName = emailError ? styles.error : null;
+  const fullNameClassName = fullNameError ? styles.error : null;
+  const stateClassName = stateError ? styles.error : null;
+  const streetClassName = streetError ? styles.error : null;
+  const zipClassName = zipError ? styles.error : null;
+
   return (
     <div className={styles.shipping}>
       <h2>Shipping</h2>
       <div className={styles.wrapper}>
         <ShippingInput
           controlStyleOne={styles.inputControl}
+          error={fullNameError}
+          errorMessage={"Please enter a name!"}
+          errorStyle={fullNameClassName}
+          handleOnBlur={fullNameOnBlur}
+          handleOnChange={fullNameOnChange}
+          inputRef={fullNameRef}
           inputStyleOne={styles.input}
           inputStyleTwo={styles.fullName}
           id={"name"}
           type={"text"}
+          value={fullNameValue}
         >
           Full Name
         </ShippingInput>
         <ShippingInput
           controlStyleOne={styles.inputControl}
+          error={emailError}
+          errorMessage={"Please use a valid email!"}
+          errorStyle={emailClassName}
+          handleOnBlur={emailOnBlur}
+          handleOnChange={emailOnChange}
+          inputRef={emailRef}
           inputStyleOne={styles.input}
           inputStyleTwo={styles.email}
           id={"email"}
           type={"email"}
+          value={emailValue}
         >
           Email
         </ShippingInput>
@@ -31,25 +99,47 @@ const Shipping = () => {
       <ShippingInput
         controlStyleOne={styles.inputControl}
         controlStyleTwo={styles.wide}
+        error={streetError}
+        errorMessage={"Please enter a street!"}
+        errorStyle={streetClassName}
+        handleOnBlur={streetOnBlur}
+        handleOnChange={streetOnChange}
+        inputRef={streetRef}
         inputStyleOne={styles.input}
         inputStyleTwo={styles.street}
         id={"street"}
         type={"text"}
+        value={streetValue}
       >
         Street
       </ShippingInput>
       <div className={styles.wrapper}>
         <ShippingInput
           controlStyleOne={styles.inputControl}
+          error={cityError}
+          errorMessage={"Please enter a city!"}
+          errorStyle={cityClassName}
+          handleOnBlur={cityOnBlur}
+          handleOnChange={cityOnChange}
+          inputRef={cityRef}
           inputStyleOne={styles.input}
           id={"city"}
           type={"text"}
+          value={cityValue}
         >
           City
         </ShippingInput>
         <div className={styles.inputControl}>
           <label htmlFor="state">State</label>
-          <select className={styles.input} id="state">
+          <select
+            className={`${styles.input} ${stateClassName}`}
+            id="state"
+            ref={stateRef}
+            name="state"
+            onBlur={stateOnBlur}
+            onChange={stateOnChange}
+            value={stateValue}
+          >
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -101,13 +191,23 @@ const Shipping = () => {
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
+          {stateError && (
+            <p className={styles.errorText}>Please choose a state!</p>
+          )}
         </div>
         <ShippingInput
           controlStyleOne={styles.inputControl}
+          error={zipError}
+          errorMessage={"Please enter a zip code!"}
+          errorStyle={zipClassName}
+          handleOnBlur={zipOnBlur}
+          handleOnChange={zipOnChange}
+          inputRef={zipRef}
           inputStyleOne={styles.input}
           inputStyleTwo={styles.zip}
           id={"zip"}
           type={"number"}
+          value={zipValue}
         >
           Zip Code
         </ShippingInput>
