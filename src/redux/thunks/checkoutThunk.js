@@ -1,11 +1,5 @@
 import { db } from "../../firebase/firebaseConfig";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  onSnapshot,
-} from "firebase/firestore";
+import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
 
 //actions
 import { checkoutActions } from "../slices/checkoutSlice";

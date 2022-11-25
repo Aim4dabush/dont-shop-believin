@@ -9,8 +9,6 @@ import { useValidation } from "../../../hooks/useValidation";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { checkoutActions } from "../../../redux/slices/checkoutSlice";
-import { modalActions } from "../../../redux/slices/modalSlice";
 import { addCustomerOrder } from "../../../redux/thunks/checkoutThunk";
 
 //styles

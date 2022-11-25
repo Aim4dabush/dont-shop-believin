@@ -5,6 +5,14 @@
   border: none;
   border-radius: 5px;
   color: $secondary;
-  font-weight: $semi;
-  padding: 1em 2em;
+  font-family: $merriweather;
+  font-size: 15px;
+  padding: 0.5em 1em;
+
+  &:hover {
+    background-color: $link;
+    cursor: pointer;
+    font-weight: $bold;
+    text-decoration: underline;
+  }
 }

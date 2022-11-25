@@ -17,12 +17,15 @@
     border: none;
     border-radius: 2px;
     color: $secondary;
-    font-weight: $semi;
+    font-size: 15px;
+    font-family: $merriweather;
     margin-top: 1em;
     padding: 0.5em 1em;
 
     &:hover {
       background-color: $link;
+      cursor: pointer;
+      font-weight: $bold;
       text-decoration: underline;
     }
   }

@@ -10,11 +10,14 @@
     background-color: $primary;
     border-radius: 5px;
     color: $secondary;
+    font-family: $merriweather;
     margin: 0 2em;
     padding: 0.5em 3em;
     text-decoration: none;
 
     &:hover {
+      background-color: $link;
+      font-weight: $bold;
       text-decoration: underline;
     }
   }
