@@ -3,6 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const modalSlice = createSlice({
   name: "modal",
   initialState: {
+    checkout: {
+      isShown: false,
+    },
     notification: {
       status: null,
       message: null,
@@ -14,6 +17,11 @@ const modalSlice = createSlice({
     },
   },
   reducers: {
+    setCheckout(state, action) {
+      state.checkout = {
+        isShown: action.payload,
+      };
+    },
     setNotification(state, action) {
       state.notification = {
         status: action.payload.status,

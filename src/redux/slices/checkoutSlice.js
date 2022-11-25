@@ -10,37 +10,41 @@ export const checkoutSlice = createSlice({
         state: null,
         zip: null,
       },
-      card: {
+      creditCard: {
+        company: null,
         name: null,
-        number: null,
+        card: null,
         exp: null,
       },
       email: null,
-      name: null,
+      fullName: null,
+      items: null,
       receipt: null,
       total: null,
+      user: null,
     },
   },
   reducers: {
-    setAddress(state, action) {
-      state.address = {
-        street: action.payload.street,
-        city: action.payload.city,
-        state: action.payload.city,
-        zip: action.payload.zip,
-      };
-    },
-    setCard(state, action) {
-      state.card = {
-        name: action.payload.name,
-        number: action.payload.number,
-        exp: action.payload.exp,
-      };
-    },
-    setInfo(state, action) {
+    setOrder(state, action) {
       state.order = {
+        address: {
+          street: action.payload.address.street,
+          city: action.payload.address.city,
+          state: action.payload.address.state,
+          zip: action.payload.address.zip,
+        },
+        creditCard: {
+          company: action.payload.creditCard.company,
+          name: action.payload.creditCard.name,
+          card: action.payload.creditCard.card,
+          exp: action.payload.creditCard.exp,
+        },
         email: action.payload.email,
-        name: action.payload.name,
+        fullName: action.payload.fullName,
+        items: action.payload.items,
+        receipt: action.payload.receipt,
+        total: action.payload.total,
+        user: action.payload.user,
       };
     },
     setOrderReset(state) {
@@ -51,15 +55,18 @@ export const checkoutSlice = createSlice({
           state: null,
           zip: null,
         },
-        card: {
+        creditCard: {
+          company: null,
           name: null,
-          number: null,
+          card: null,
           exp: null,
         },
         email: null,
-        name: null,
+        fullName: null,
+        items: null,
         receipt: null,
         total: null,
+        user: null,
       };
     },
     setReceipt(state, action) {

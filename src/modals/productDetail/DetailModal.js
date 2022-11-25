@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 const DetailModal = () => {
   const isShown = useSelector((state) => state.modal.productDetail.isShown);
+
   return (
     <Fragment>
       {isShown &&

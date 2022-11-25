@@ -9,6 +9,8 @@ import { useValidation } from "../../../hooks/useValidation";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
+import { checkoutActions } from "../../../redux/slices/checkoutSlice";
+import { modalActions } from "../../../redux/slices/modalSlice";
 import { addCustomerOrder } from "../../../redux/thunks/checkoutThunk";
 
 //styles
@@ -16,6 +18,9 @@ import styles from "./CheckoutForm.module.scss";
 
 const CheckoutForm = () => {
   const dispatch = useDispatch();
+  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
+  const total = useSelector((state) => state.checkout.order.total);
+  const user = useSelector((state) => state.auth.user.id);
   const card = useRef();
   const city = useRef();
   const company = useRef();
@@ -26,7 +31,6 @@ const CheckoutForm = () => {
   const state = useRef();
   const street = useRef();
   const zip = useRef();
-  const user = useSelector((state) => state.auth.user.id);
 
   const {
     error: cardError,
@@ -129,17 +133,23 @@ const CheckoutForm = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const order = {
-      card: card.current.value,
-      city: city.current.value,
-      company: company.current.value,
+      address: {
+        street: street.current.value,
+        city: city.current.value,
+        state: state.current.value,
+        zip: zip.current.value,
+      },
+      creditCard: {
+        company: company.current.value,
+        name: name.current.value,
+        card: card.current.value,
+        exp: exp.current.value,
+      },
       email: email.current.value,
-      exp: exp.current.value,
       fullName: fullName.current.value,
-      name: name.current.value,
-      state: state.current.value,
-      street: street.current.value,
+      items: shoppingCart,
+      total: total,
       user: user,
-      zip: zip.current.value,
     };
 
     if (formIsValid) {

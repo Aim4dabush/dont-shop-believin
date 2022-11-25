@@ -1,0 +1,46 @@
+@import "../../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+
+  .card {
+    align-items: center;
+    background-color: $secondary;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    justify-content: space-evenly;
+    padding: 1em;
+    text-align: center;
+    width: 45%;
+    z-index: 2;
+
+    .btnWrapper {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+
+      .btn {
+        background-color: $primary;
+        border: none;
+        border-radius: 5px;
+        color: $secondary;
+        font-family: $merriweather;
+        font-size: 15px;
+        padding: 0.5em 1.5em;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: $bold;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

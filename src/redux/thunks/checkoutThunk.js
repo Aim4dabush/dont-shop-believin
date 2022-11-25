@@ -17,7 +17,18 @@ export const addCustomerOrder = (order) => {
 
     await addDoc(collectionRef, order)
       .then((res) => {
-        console.log(res);
+        if (!res) {
+          dispatch(
+            modalActions.setNotification({
+              status: "Error",
+              message: "Something went wrong!",
+              isShown: true,
+            })
+          );
+        } else {
+          dispatch(checkoutActions.setReceipt(res.id));
+          dispatch(modalActions.setCheckout(true));
+        }
       })
       .catch((error) => {
         dispatch(
@@ -28,5 +39,40 @@ export const addCustomerOrder = (order) => {
           })
         );
       });
+  };
+};
+
+export const getCustomerOrder = (receipt) => {
+  return (dispatch) => {
+    const docRef = doc(db, `order/${receipt}`);
+
+    onSnapshot(docRef, (res) => {
+      if (res) {
+        let info = res.data();
+        console.log(info.address.street);
+        dispatch(
+          checkoutActions.setOrder({
+            address: {
+              street: info.address.street,
+              city: info.address.city,
+              state: info.address.state,
+              zip: info.address.zip,
+            },
+            creditCard: {
+              company: info.creditCard.company,
+              name: info.creditCard.name,
+              card: info.creditCard.card,
+              exp: info.creditCard.exp,
+            },
+            email: info.email,
+            fullName: info.fullName,
+            items: info.items,
+            receipt: res.id,
+            total: info.total,
+            user: info.user,
+          })
+        );
+      }
+    });
   };
 };

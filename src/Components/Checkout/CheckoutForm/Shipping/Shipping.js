@@ -109,7 +109,10 @@ const Shipping = (props) => {
             onChange={stateOnChange}
             value={stateValue}
           >
-            <option value="AL">Alabama</option>
+            <option value="">Select state:</option>
+            <option value="AL" selected>
+              Alabama
+            </option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
             <option value="AR">Arkansas</option>

@@ -1,13 +1,14 @@
 //components
 import PaymentInput from "./PaymentInput/PaymentInput";
 
-//hooks
-import { useValidation } from "../../../../hooks/useValidation";
+//redux
+import { useSelector } from "react-redux";
 
 //styles
 import styles from "./Payment.module.scss";
 
 const Payment = (props) => {
+  const total = useSelector((state) => state.checkout.order.total);
   const { card, cardError, cardValue, cardOnBlur, cardOnChange } = props.card;
   const {
     company,
@@ -50,7 +51,7 @@ const Payment = (props) => {
           errorStyle={cardClassName}
           handleOnBlur={cardOnBlur}
           handleOnChange={cardOnChange}
-          id={"number"}
+          id={"card"}
           inputRef={card}
           inputStyle={styles.creditCard}
           type={"number"}
@@ -69,10 +70,11 @@ const Payment = (props) => {
             ref={company}
             value={companyValue}
           >
-            <option value="MA">MasterCard</option>
-            <option value="VA">Visa</option>
-            <option value="DR">Discover</option>
-            <option value="AE">American Express</option>
+            <option value="">Select card:</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Visa">Visa</option>
+            <option value="Discover">Discover</option>
+            <option value="American Express">American Express</option>
           </select>
           {companyError && (
             <p className={styles.errorText}>Please select a card company!</p>
@@ -94,6 +96,7 @@ const Payment = (props) => {
           Expiration Date
         </PaymentInput>
       </div>
+      <p className={styles.total}>Total: ${total}</p>
     </div>
   );
 };
