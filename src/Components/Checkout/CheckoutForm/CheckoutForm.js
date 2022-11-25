@@ -10,6 +10,7 @@ import { useValidation } from "../../../hooks/useValidation";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { addCustomerOrder } from "../../../redux/thunks/checkoutThunk";
+import { deleteShoppingCart } from "../../../redux/thunks/cartsThunk";
 
 //styles
 import styles from "./CheckoutForm.module.scss";
@@ -163,6 +164,7 @@ const CheckoutForm = () => {
       streetReset();
       zipReset();
     }
+    dispatch(deleteShoppingCart());
   };
 
   return (

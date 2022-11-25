@@ -14,8 +14,6 @@ const CheckoutModalCard = () => {
   const navigate = useNavigate();
   const order = useSelector((state) => state.checkout.order);
 
-  console.log(order);
-
   const goToShippingPolicy = () => {
     dispatch(cartsActions.setShoppingReset);
     dispatch(modalActions.setCheckout(false));

@@ -41,9 +41,8 @@ export const getCustomerOrder = (receipt) => {
     const docRef = doc(db, `order/${receipt}`);
 
     onSnapshot(docRef, (res) => {
-      if (res) {
+      if (res.data()) {
         let info = res.data();
-        console.log(info.address.street);
         dispatch(
           checkoutActions.setOrder({
             address: {

@@ -70,7 +70,7 @@ const Payment = (props) => {
             ref={company}
             value={companyValue}
           >
-            <option value="">Select card:</option>
+            <option value="0">Select card:</option>
             <option value="Mastercard">Mastercard</option>
             <option value="Visa">Visa</option>
             <option value="Discover">Discover</option>
