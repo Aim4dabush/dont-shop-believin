@@ -62,7 +62,7 @@ export const addWishListData = (user, data) => {
 
 export const deleteShoppingCart = (user) => {
   return async (dispatch) => {
-    const docRef = doc(db, "shopping", user);
+    const docRef = doc(db, `shopping/${user}`);
 
     await deleteDoc(docRef).catch((error) => {
       dispatch(

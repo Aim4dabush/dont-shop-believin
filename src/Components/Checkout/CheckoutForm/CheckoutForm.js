@@ -9,6 +9,7 @@ import { useValidation } from "../../../hooks/useValidation";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
+import { cartsActions } from "../../../redux/slices/cartsSlice";
 import { addCustomerOrder } from "../../../redux/thunks/checkoutThunk";
 import { deleteShoppingCart } from "../../../redux/thunks/cartsThunk";
 
@@ -17,7 +18,7 @@ import styles from "./CheckoutForm.module.scss";
 
 const CheckoutForm = () => {
   const dispatch = useDispatch();
-  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
+  const shoppingCart = useSelector((state) => state.carts.shoppingCart);
   const total = useSelector((state) => state.checkout.order.total);
   const user = useSelector((state) => state.auth.user.id);
   const card = useRef();
@@ -154,6 +155,7 @@ const CheckoutForm = () => {
     if (formIsValid) {
       dispatch(addCustomerOrder(order));
       dispatch(deleteShoppingCart(order.user));
+      dispatch(cartsActions.setShoppingCart([]));
       cardReset();
       cityReset();
       companyReset();

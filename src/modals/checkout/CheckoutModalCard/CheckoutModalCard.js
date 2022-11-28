@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { cartsActions } from "../../../redux/slices/cartsSlice";
 import { modalActions } from "../../../redux/slices/modalSlice";
 
 //styles
@@ -15,13 +14,11 @@ const CheckoutModalCard = () => {
   const order = useSelector((state) => state.checkout.order);
 
   const goToShippingPolicy = () => {
-    dispatch(cartsActions.setShoppingReset);
     dispatch(modalActions.setCheckout(false));
     navigate("/shipping-policy", { replace: true });
   };
 
   const goToStore = () => {
-    dispatch(cartsActions.setShoppingReset);
     dispatch(modalActions.setCheckout(false));
     navigate("/products", { replace: true });
   };
