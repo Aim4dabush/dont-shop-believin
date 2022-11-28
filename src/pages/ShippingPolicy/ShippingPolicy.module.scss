@@ -1,0 +1,30 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transform: translateY(100px);
+
+  & h1 {
+    color: $secondary;
+    text-decoration: underline;
+  }
+
+  & ul {
+    background-color: $secondary;
+    border-radius: 5px;
+    box-shadow: 2px -2px 8px 3px $shadow;
+    padding: 1em;
+    width: 50%;
+  }
+
+  & ul li {
+    margin-bottom: 2em;
+  }
+
+  & ul li h3 {
+    margin-bottom: 0;
+  }
+}
