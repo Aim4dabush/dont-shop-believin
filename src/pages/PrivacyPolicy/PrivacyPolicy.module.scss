@@ -1,0 +1,21 @@
+@import "../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  color: $secondary;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-bottom: 3em;
+  transform: translateY(100px);
+  width: 100%;
+
+  & ul {
+    list-style: outside;
+    width: 50%;
+  }
+
+  .title {
+    text-decoration: underline;
+  }
+}
