@@ -27,7 +27,7 @@ const CartSummary = () => {
 
       dispatch(checkoutActions.setTotal(total));
     } else {
-      let total = shoppingCart[0].quantity * shoppingCart[0].price;
+      let total = shoppingCart[0]?.quantity * shoppingCart[0]?.price;
       dispatch(checkoutActions.setTotal(total));
     }
   }, [dispatch, shoppingCart]);
@@ -45,7 +45,7 @@ const CartSummary = () => {
             </div>
           );
         })}
-      <p>Total: ${total}</p>
+      <p>Total: ${total ? total : 0}</p>
       <button className={styles.btn} onClick={onClickHandler}>
         Checkout
       </button>

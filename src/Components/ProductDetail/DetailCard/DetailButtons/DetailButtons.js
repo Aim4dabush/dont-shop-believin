@@ -22,7 +22,7 @@ const DetailButtons = () => {
   const quantity = useSelector((state) => state.carts.quantity);
   const shoppingData = useSelector((state) => state.carts.shoppingData);
   const user = useSelector((state) => state.auth.user.id);
-  const wishList = useSelector((state) => state.carts.wish.cart);
+  const wishData = useSelector((state) => state.carts.wishData);
 
   const addCartHandler = () => {
     if (Array.isArray(shoppingData)) {
@@ -82,59 +82,75 @@ const DetailButtons = () => {
   };
 
   const addWishHandler = () => {
-    const item = wishList.find((item) => {
-      return item.id === product.id;
-    });
-    const index = wishList.findIndex((item) => {
-      return item.id === product.id;
-    });
+    if (Array.isArray(wishData)) {
+      const index = wishData.findIndex((item) => {
+        return item.id === product.id;
+      });
 
-    if (index === -1) {
+      if (index === -1) {
+        const data = {
+          date: {
+            date: new Date().getDate(),
+            month: new Date().getMonth(),
+            year: new Date().getFullYear(),
+          },
+          id: product.id,
+          image: product.images[0],
+          quantity: quantity,
+          price: product.price,
+          subTotal: quantity * product.price,
+          title: product.title,
+        };
+        dispatch(cartsActions.setWishData(data));
+        dispatch(
+          modalActions.setProductDetail({
+            title: "wish",
+            isShown: true,
+          })
+        );
+      } else {
+        dispatch(
+          modalActions.setNotification({
+            status: "Error",
+            message: "Item already on wish list!",
+            isShown: true,
+          })
+        );
+      }
+    } else {
       const data = {
         date: {
-          day: new Date().getDate(),
+          date: new Date().getDate(),
           month: new Date().getMonth(),
           year: new Date().getFullYear(),
         },
         id: product.id,
         image: product.images[0],
-        price: product.price,
         quantity: quantity,
-        rating: product.rating,
+        price: product.price,
+        subTotal: quantity * product.price,
         title: product.title,
       };
-      dispatch(addWishListData(user, data));
-    } else {
-      const data = {
-        date: {
-          day: new Date().getDate(),
-          month: new Date().getMonth(),
-          year: new Date().getFullYear(),
-        },
-        id: item.id,
-        image: item.image,
-        price: item.price,
-        quantity: item.quantity + quantity,
-        rating: item.rating,
-        title: item.title,
-      };
-      dispatch(addWishListData(user, data));
+      dispatch(cartsActions.setWishData(data));
+      dispatch(
+        modalActions.setProductDetail({
+          title: "wish",
+          isShown: true,
+        })
+      );
     }
-    dispatch(
-      modalActions.setProductDetail({
-        title: "Wish List",
-        isShown: true,
-      })
-    );
+
+    dispatch(cartsActions.setLoadData(true));
     dispatch(cartsActions.setQuantityReset());
   };
 
   useEffect(() => {
     if (loadData) {
       dispatch(addShoppingData(user, shoppingData));
+      dispatch(addWishListData(user, wishData));
       dispatch(cartsActions.setLoadData(false));
     }
-  }, [dispatch, loadData, user, shoppingData]);
+  }, [dispatch, loadData, shoppingData, user, wishData]);
 
   return (
     <div className={styles.buttonWrapper}>

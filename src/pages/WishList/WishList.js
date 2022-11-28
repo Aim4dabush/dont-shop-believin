@@ -6,7 +6,7 @@ import WishCard from "../../Components/WishList/WishCard/WishCard";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
-import { getWishList, getWishListSize } from "../../redux/thunks/cartsThunk";
+import { getWishList } from "../../redux/thunks/cartsThunk";
 
 //styles
 import styles from "./WishList.module.scss";
@@ -14,12 +14,10 @@ import styles from "./WishList.module.scss";
 const WishList = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user.id);
-  const wishList = useSelector((state) => state.carts.wish.cart);
-  console.log(wishList);
+  const wishCart = useSelector((state) => state.carts.wishCart);
 
   useEffect(() => {
-    const unsub =
-      (dispatch(getWishList(user)), dispatch(getWishListSize(user)));
+    const unsub = dispatch(getWishList(user));
 
     return () => unsub;
   }, [user, dispatch]);
@@ -28,8 +26,8 @@ const WishList = () => {
     <div className={styles.container}>
       <h1>Wish List</h1>
       <NavigationButtons />
-      {Array.isArray(wishList) &&
-        wishList.map((item) => {
+      {Array.isArray(wishCart) &&
+        wishCart.map((item) => {
           return <WishCard key={item.id} product={item} />;
         })}
     </div>

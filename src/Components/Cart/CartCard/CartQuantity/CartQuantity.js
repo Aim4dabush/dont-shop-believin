@@ -24,7 +24,7 @@ const CartQuantity = ({ quantity, setItemQuantity, title }) => {
           className={styles.quantityInput}
           type="number"
           id={title}
-          value={quantity}
+          value={quantity ? quantity : null}
           readOnly
         />
         <button

@@ -7,10 +7,7 @@ import SortMenu from "../../Components/Products/SortMenu/SortMenu";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/thunks/productsThunk";
-import {
-  getShoppingCart,
-  getWishListSize,
-} from "../../redux/thunks/cartsThunk";
+import { getShoppingCart, getWishList } from "../../redux/thunks/cartsThunk";
 
 //styles
 import styles from "./Products.module.scss";
@@ -26,7 +23,7 @@ const Products = () => {
       dispatch(getAllProducts());
     }
     const unsub =
-      (dispatch(getWishListSize(user)), dispatch(getShoppingCart(user)));
+      (dispatch(getWishList(user)), dispatch(getShoppingCart(user)));
 
     return () => unsub;
   }, [dispatch, products, user]);

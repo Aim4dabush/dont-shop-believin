@@ -17,7 +17,6 @@ const CartButtons = ({ quantity, product }) => {
   const loadData = useSelector((state) => state.carts.loadData);
   const shoppingData = useSelector((state) => state.carts.shoppingData);
   const user = useSelector((state) => state.auth.user.id);
-
   const addCartHandler = () => {
     const item = shoppingData.find((item) => {
       return item.id === product.id;
@@ -59,6 +58,7 @@ const CartButtons = ({ quantity, product }) => {
     const index = shoppingData.findIndex((item) => {
       return item.id === product.id;
     });
+
     dispatch(cartsActions.setDeleteShoppingData(index));
     dispatch(cartsActions.setLoadData(true));
   };

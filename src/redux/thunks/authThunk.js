@@ -41,8 +41,8 @@ export const authLogout = () => {
     signOut(auth).then(() => {
       localStorage.clear();
       dispatch(authActions.setReset());
-      dispatch(cartsActions.setShoppingReset());
-      dispatch(cartsActions.setWishReset());
+      dispatch(cartsActions.setShoppingDataReset());
+      dispatch(cartsActions.setWishDataReset());
       dispatch(productsActions.setProductsReset());
     });
   };

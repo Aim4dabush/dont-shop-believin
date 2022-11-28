@@ -6,12 +6,10 @@ const cartsSlice = createSlice({
     loadData: false,
     quantity: 1,
     product: null,
-    shoppingData: [],
     shoppingCart: [],
-    wish: {
-      cart: [],
-      size: 0,
-    },
+    shoppingData: [],
+    wishCart: [],
+    wishData: [],
   },
   reducers: {
     setDecrement(state, action) {
@@ -21,6 +19,9 @@ const cartsSlice = createSlice({
     },
     setDeleteShoppingData(state, action) {
       state.shoppingData.splice(action.payload, 1);
+    },
+    setDeleteWishData(state, action) {
+      state.wishData.splice(action.payload, 1);
     },
     setIncrement(state, action) {
       state.quantity = state.quantity + action.payload;
@@ -37,6 +38,9 @@ const cartsSlice = createSlice({
     setReplaceShoppingData(state, action) {
       state.shoppingData.splice(action.payload.index, 1, action.payload.data);
     },
+    setReplaceWishData(state, action) {
+      state.wishData.splice(action.payload.index, 1, action.payload.data);
+    },
     setShoppingCart(state, action) {
       state.shoppingCart = action.payload;
     },
@@ -46,17 +50,14 @@ const cartsSlice = createSlice({
     setShoppingDataReset(state) {
       state.shoppingData = [];
     },
-    setWish(state, action) {
-      state.wish.cart = action.payload;
+    setWishCart(state, action) {
+      state.wishCart = action.payload;
     },
-    setWishSize(state, action) {
-      state.wish.size = action.payload;
+    setWishData(state, action) {
+      state.wishData.push(action.payload);
     },
-    setWishReset(state) {
-      state.wish = {
-        cart: [],
-        size: 0,
-      };
+    setWishDataReset(state) {
+      state.wishData = [];
     },
   },
 });
