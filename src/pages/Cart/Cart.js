@@ -22,7 +22,9 @@ const Cart = () => {
     return () => unsub;
   }, [dispatch, user]);
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${shoppingCart <= 3 && styles.height}`}
+    >
       <h1>Cart</h1>
       <div className={styles.mainWrapper}>
         <div className={styles.productsWrapper}>
@@ -31,7 +33,7 @@ const Cart = () => {
               return <CartCard key={item.id} product={item} />;
             })}
         </div>
-        <CartSummary />
+        {shoppingCart.length !== 0 && <CartSummary />}
       </div>
     </div>
   );

@@ -11,9 +11,19 @@
     background-color: $secondary;
     border: none;
     border-radius: 5px;
+    box-shadow: 1px -1px 8px 2px $shadow;
     color: $primary;
+    font-family: $merriweather;
     font-size: 20px;
     margin-top: 1em;
     padding: 0.5em 1em;
+
+    &:hover {
+      background-color: $link;
+      color: $secondary;
+      cursor: pointer;
+      font-weight: $bold;
+      text-decoration: underline;
+    }
   }
 }

@@ -23,7 +23,9 @@ const WishList = () => {
   }, [user, dispatch]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${wishCart.length <= 3 && styles.height}`}
+    >
       <h1>Wish List</h1>
       <NavigationButtons />
       {Array.isArray(wishCart) &&
