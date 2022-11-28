@@ -2,22 +2,29 @@
 
 .btnWrapper {
   display: flex;
-  justify-content: space-evenly;
-  width: 60%;
+  gap: 2em;
+  justify-content: center;
+  width: 100%;
 
   .btn {
-    background-color: $primary;
+    background-color: $secondary;
     align-items: center;
     border: none;
-    color: $secondary;
+    border-radius: 5px;
+    color: $primary;
     display: flex;
+    font-family: $merriweather;
     font-size: 16px;
-    font-weight: $semi;
     gap: 0.2em;
+    padding: 0.5em 1em;
     margin: 1.5em 0;
     text-decoration: none;
 
     &:hover {
+      background-color: $link;
+      color: $secondary;
+      cursor: pointer;
+      font-weight: $bold;
       text-decoration: underline;
     }
   }

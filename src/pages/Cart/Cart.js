@@ -23,7 +23,9 @@ const Cart = () => {
   }, [dispatch, user]);
   return (
     <div
-      className={`${styles.container} ${shoppingCart <= 3 && styles.height}`}
+      className={`${styles.container} ${
+        shoppingCart.length <= 3 && styles.height
+      }`}
     >
       <h1>Cart</h1>
       <div className={styles.mainWrapper}>

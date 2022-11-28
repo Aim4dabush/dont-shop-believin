@@ -13,12 +13,15 @@
   width: 300px;
 
   .btn {
+    align-items: center;
     background-color: $primary;
     border: none;
     border-radius: 2px;
     color: $secondary;
+    display: flex;
     font-size: 15px;
     font-family: $merriweather;
+    gap: 0.25em;
     margin-top: 1em;
     padding: 0.5em 1em;
 

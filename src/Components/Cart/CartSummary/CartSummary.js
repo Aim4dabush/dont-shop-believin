@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+//components
+import { FaFlagCheckered } from "react-icons/fa";
+
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { checkoutActions } from "../../../redux/slices/checkoutSlice";
@@ -47,7 +50,7 @@ const CartSummary = () => {
         })}
       <p>Total: ${total ? total : 0}</p>
       <button className={styles.btn} onClick={onClickHandler}>
-        Checkout
+        <FaFlagCheckered /> Checkout
       </button>
     </div>
   );

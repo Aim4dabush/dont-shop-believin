@@ -1,5 +1,9 @@
 //components
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import {
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+  FaTrashAlt,
+} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 //styles
@@ -11,6 +15,9 @@ const NavigationButtons = () => {
       <NavLink className={styles.btn} to={"/products"}>
         <FaAngleDoubleLeft /> Back To Products
       </NavLink>
+      <button className={styles.btn}>
+        <FaTrashAlt /> Clear Wish List
+      </button>
       <NavLink className={styles.btn} to={"/cart"}>
         Go To Cart
         <FaAngleDoubleRight />

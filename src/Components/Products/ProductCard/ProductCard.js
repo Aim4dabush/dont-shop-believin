@@ -3,6 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 //components
 import ProductImage from "./ProductImage/ProductImage";
 import ProductInfo from "./ProductInfo/ProductInfo";
+import { FaFolderOpen } from "react-icons/fa";
 
 //styles
 import styles from "./ProductCard.module.scss";
@@ -33,6 +34,7 @@ const ProductCard = ({ product }) => {
         infoTwo={`Price: $${product?.price}`}
       />
       <button className={styles.btn} onClick={onClickHandler}>
+        <FaFolderOpen />
         View Details
       </button>
     </div>

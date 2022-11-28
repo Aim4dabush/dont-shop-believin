@@ -7,10 +7,13 @@
   width: 100%;
 
   .btn {
+    align-items: center;
     background-color: $primary;
     border-radius: 5px;
     color: $secondary;
+    display: flex;
     font-family: $merriweather;
+    gap: 0.25em;
     margin: 0 2em;
     padding: 0.5em 3em;
     text-decoration: none;
