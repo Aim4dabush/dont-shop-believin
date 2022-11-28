@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
+import { checkoutActions } from "../../../redux/slices/checkoutSlice";
 import { modalActions } from "../../../redux/slices/modalSlice";
 
 //styles
@@ -19,6 +20,7 @@ const CheckoutModalCard = () => {
   };
 
   const goToStore = () => {
+    dispatch(checkoutActions.setOrderReset());
     dispatch(modalActions.setCheckout(false));
     navigate("/products", { replace: true });
   };

@@ -1,0 +1,32 @@
+@import "../../../style-variables/variables.scss";
+
+.form {
+  color: $secondary;
+  display: flex;
+  margin-top: 1em;
+
+  .btn {
+    background-color: $secondary;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $primary;
+    font-family: $merriweather;
+
+    &:hover {
+      background-color: $link;
+      color: $secondary;
+      cursor: pointer;
+      font-weight: $bold;
+      text-decoration: underline;
+    }
+  }
+
+  .formInput {
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 0.5em 1em;
+    width: 300px;
+  }
+}

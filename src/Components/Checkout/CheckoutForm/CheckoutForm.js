@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 //component
 import Payment from "./Payment/Payment";
@@ -10,7 +10,11 @@ import { useValidation } from "../../../hooks/useValidation";
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import { cartsActions } from "../../../redux/slices/cartsSlice";
-import { addCustomerOrder } from "../../../redux/thunks/checkoutThunk";
+import { checkoutActions } from "../../../redux/slices/checkoutSlice";
+import {
+  addCustomerOrder,
+  getCustomerOrder,
+} from "../../../redux/thunks/checkoutThunk";
 import { deleteShoppingCart } from "../../../redux/thunks/cartsThunk";
 
 //styles
@@ -18,6 +22,8 @@ import styles from "./CheckoutForm.module.scss";
 
 const CheckoutForm = () => {
   const dispatch = useDispatch();
+  const getOrder = useSelector((state) => state.checkout.getOrder);
+  const receipt = useSelector((state) => state.checkout.order.receipt);
   const shoppingCart = useSelector((state) => state.carts.shoppingCart);
   const total = useSelector((state) => state.checkout.order.total);
   const user = useSelector((state) => state.auth.user.id);
@@ -154,6 +160,7 @@ const CheckoutForm = () => {
 
     if (formIsValid) {
       dispatch(addCustomerOrder(order));
+      dispatch(checkoutActions.setGetOrder(true));
       dispatch(deleteShoppingCart(order.user));
       dispatch(cartsActions.setShoppingCart([]));
       cardReset();
@@ -168,6 +175,13 @@ const CheckoutForm = () => {
       zipReset();
     }
   };
+
+  useEffect(() => {
+    if (getOrder) {
+      dispatch(getCustomerOrder(receipt));
+      dispatch(checkoutActions.setGetOrder(false));
+    }
+  }, [dispatch, getOrder, receipt]);
 
   return (
     <form className={styles.container} onSubmit={onSubmitHandler}>

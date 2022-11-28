@@ -1,0 +1,17 @@
+@import "../../../../style-variables/variables.scss";
+
+.card {
+  background-color: $secondary;
+  color: $primary;
+  display: flex;
+  padding: 1em;
+  height: 250px;
+  width: fit-content;
+
+  .infoWrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}

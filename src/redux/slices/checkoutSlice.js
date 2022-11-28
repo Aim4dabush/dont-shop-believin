@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const checkoutSlice = createSlice({
   name: "checkout",
   initialState: {
+    getOrder: false,
     order: {
       address: {
         street: null,
@@ -25,6 +26,9 @@ export const checkoutSlice = createSlice({
     },
   },
   reducers: {
+    setGetOrder(state, action) {
+      state.getOrder = action.payload;
+    },
     setOrder(state, action) {
       state.order = {
         address: {

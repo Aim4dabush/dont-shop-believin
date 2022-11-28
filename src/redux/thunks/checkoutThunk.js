@@ -1,5 +1,11 @@
 import { db } from "../../firebase/firebaseConfig";
-import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from "firebase/firestore";
 
 //actions
 import { checkoutActions } from "../slices/checkoutSlice";
@@ -33,6 +39,22 @@ export const addCustomerOrder = (order) => {
           })
         );
       });
+  };
+};
+
+export const deleteOrder = (receipt) => {
+  return async (dispatch) => {
+    const docRef = doc(db, `order/${receipt}`);
+
+    await deleteDoc(docRef).catch((error) => {
+      dispatch(
+        modalActions.setNotification({
+          status: "Error",
+          message: error.message,
+          isShown: true,
+        })
+      );
+    });
   };
 };
 

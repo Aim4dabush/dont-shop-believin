@@ -6,10 +6,17 @@
   flex-direction: column;
   height: 100vh;
   padding: 0 1em;
-  margin-bottom: 7em;
   transform: translateY(100px);
 
-  & h1 {
+  .orderWrapper {
+    display: flex;
+    gap: 1em;
+    justify-content: space-evenly;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .title {
     color: $secondary;
     margin: 0;
     text-decoration: underline;

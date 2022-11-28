@@ -1,0 +1,14 @@
+@import "../../../style-variables/variables.scss";
+
+.container {
+  align-items: center;
+  color: $secondary;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  .title {
+    margin: 0;
+    text-decoration: underline;
+  }
+}
