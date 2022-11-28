@@ -153,6 +153,7 @@ const CheckoutForm = () => {
 
     if (formIsValid) {
       dispatch(addCustomerOrder(order));
+      dispatch(deleteShoppingCart(order.user));
       cardReset();
       cityReset();
       companyReset();
@@ -164,7 +165,6 @@ const CheckoutForm = () => {
       streetReset();
       zipReset();
     }
-    dispatch(deleteShoppingCart());
   };
 
   return (

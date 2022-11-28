@@ -21,9 +21,8 @@ const LinkList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.user.token);
-  const shoppingSize = useSelector((state) => state.carts.shopping.size);
+  const shoppingCart = useSelector((state) => state.carts.shoppingCart);
   const wishSize = useSelector((state) => state.carts.wish.size);
-
   const onClickHandler = () => {
     dispatch(authLogout());
     navigate("/", { replace: true });
@@ -40,7 +39,7 @@ const LinkList = () => {
       </PageLink>
       <PageLink link={"/cart"}>
         <FaShoppingCart className={styles.icon} /> Cart
-        <span className={styles.size}>{shoppingSize}</span>
+        <span className={styles.size}>{shoppingCart.length}</span>
       </PageLink>
       <PageLink link={"/checkout"}>
         <FaShoppingBag className={styles.icon} /> Checkout

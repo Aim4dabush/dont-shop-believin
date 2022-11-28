@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 //components
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
@@ -15,21 +17,49 @@ import styles from "./DetailButtons.module.scss";
 
 const DetailButtons = () => {
   const dispatch = useDispatch();
+  const loadData = useSelector((state) => state.carts.loadData);
   const product = useSelector((state) => state.carts.product);
   const quantity = useSelector((state) => state.carts.quantity);
-  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
+  const shoppingData = useSelector((state) => state.carts.shoppingData);
   const user = useSelector((state) => state.auth.user.id);
   const wishList = useSelector((state) => state.carts.wish.cart);
 
   const addCartHandler = () => {
-    const item = shoppingCart.find((item) => {
-      return item.id === product.id;
-    });
-    const index = shoppingCart.findIndex((item) => {
-      return item.id === product.id;
-    });
+    if (Array.isArray(shoppingData)) {
+      const item = shoppingData.find((item) => {
+        return item.id === product.id;
+      });
+      const index = shoppingData.findIndex((item) => {
+        return item.id === product.id;
+      });
 
-    if (index === -1) {
+      if (index === -1) {
+        const data = {
+          id: product.id,
+          image: product.images[0],
+          quantity: quantity,
+          price: product.price,
+          subTotal: quantity * product.price,
+          title: product.title,
+        };
+        dispatch(cartsActions.setShoppingData(data));
+      } else {
+        const data = {
+          id: item.id,
+          image: item.image,
+          quantity: item.quantity + quantity,
+          price: item.price,
+          subTotal: (item.quantity + quantity) * item.price,
+          title: item.title,
+        };
+        dispatch(
+          cartsActions.setReplaceShoppingData({
+            index: index,
+            data: data,
+          })
+        );
+      }
+    } else {
       const data = {
         id: product.id,
         image: product.images[0],
@@ -38,18 +68,10 @@ const DetailButtons = () => {
         subTotal: quantity * product.price,
         title: product.title,
       };
-      dispatch(addShoppingData(user, data));
-    } else {
-      const data = {
-        id: item.id,
-        image: item.image,
-        quantity: item.quantity + quantity,
-        price: item.price,
-        subTotal: (item.quantity + quantity) * item.price,
-        title: item.title,
-      };
-      dispatch(addShoppingData(user, data));
+      dispatch(cartsActions.setShoppingData(data));
     }
+
+    dispatch(cartsActions.setLoadData(true));
     dispatch(
       modalActions.setProductDetail({
         title: "cart",
@@ -106,6 +128,13 @@ const DetailButtons = () => {
     );
     dispatch(cartsActions.setQuantityReset());
   };
+
+  useEffect(() => {
+    if (loadData) {
+      dispatch(addShoppingData(user, shoppingData));
+      dispatch(cartsActions.setLoadData(false));
+    }
+  }, [dispatch, loadData, user, shoppingData]);
 
   return (
     <div className={styles.buttonWrapper}>

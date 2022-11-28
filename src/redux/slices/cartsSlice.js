@@ -3,12 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartsSlice = createSlice({
   name: "carts",
   initialState: {
+    loadData: false,
     quantity: 1,
     product: null,
-    shopping: {
-      cart: [],
-      size: 0,
-    },
+    shoppingData: [],
+    shoppingCart: [],
     wish: {
       cart: [],
       size: 0,
@@ -20,26 +19,32 @@ const cartsSlice = createSlice({
         state.quantity = state.quantity - action.payload;
       }
     },
+    setDeleteShoppingData(state, action) {
+      state.shoppingData.splice(action.payload, 1);
+    },
     setIncrement(state, action) {
       state.quantity = state.quantity + action.payload;
     },
-    setQuantityReset(state) {
-      state.quantity = 1;
+    setLoadData(state, action) {
+      state.loadData = action.payload;
     },
     setProduct(state, action) {
       state.product = action.payload;
     },
-    setShopping(state, action) {
-      state.shopping.cart = action.payload;
+    setQuantityReset(state) {
+      state.quantity = 1;
     },
-    setShoppingSize(state, action) {
-      state.shopping.size = action.payload;
+    setReplaceShoppingData(state, action) {
+      state.shoppingData.splice(action.payload.index, 1, action.payload.data);
     },
-    setShoppingReset(state) {
-      state.shopping = {
-        cart: [],
-        size: 0,
-      };
+    setShoppingCart(state, action) {
+      state.shoppingCart = action.payload;
+    },
+    setShoppingData(state, action) {
+      state.shoppingData.push(action.payload);
+    },
+    setShoppingDataReset(state) {
+      state.shoppingData = [];
     },
     setWish(state, action) {
       state.wish.cart = action.payload;

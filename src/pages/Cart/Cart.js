@@ -1,30 +1,15 @@
-import { useEffect } from "react";
-
 //components
 import CartCard from "../../Components/Cart/CartCard/CartCard";
 import CartSummary from "../../Components/Cart/CartSummary/CartSummary";
 
 //redux
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getShoppingCart,
-  getShoppingSize,
-} from "../../redux/thunks/cartsThunk";
+import { useSelector } from "react-redux";
 
 //styles
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
-  const user = useSelector((state) => state.auth.user.id);
-
-  useEffect(() => {
-    const unsub =
-      (dispatch(getShoppingCart(user)), dispatch(getShoppingSize(user)));
-
-    return () => unsub;
-  }, [dispatch, user]);
+  const shoppingCart = useSelector((state) => state.carts.shoppingCart);
 
   return (
     <div className={styles.container}>

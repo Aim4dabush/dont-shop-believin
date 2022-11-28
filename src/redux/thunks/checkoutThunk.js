@@ -41,7 +41,7 @@ export const getCustomerOrder = (receipt) => {
     const docRef = doc(db, `order/${receipt}`);
 
     onSnapshot(docRef, (res) => {
-      if (res.data()) {
+      if (res) {
         let info = res.data();
         dispatch(
           checkoutActions.setOrder({
@@ -52,10 +52,10 @@ export const getCustomerOrder = (receipt) => {
               zip: info.address.zip,
             },
             creditCard: {
-              company: info.creditCard.company,
-              name: info.creditCard.name,
-              card: info.creditCard.card,
-              exp: info.creditCard.exp,
+              company: info.creditCard?.company,
+              name: info.creditCard?.name,
+              card: info.creditCard?.card,
+              exp: info.creditCard?.exp,
             },
             email: info.email,
             fullName: info.fullName,

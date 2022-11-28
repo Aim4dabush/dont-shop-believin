@@ -12,11 +12,29 @@ import {
 import { cartsActions } from "../slices/cartsSlice";
 import { modalActions } from "../slices/modalSlice";
 
-export const addShoppingData = (id, data) => {
+export const addShoppingData = (user, data) => {
   return async (dispatch) => {
-    const docRef = doc(db, `shopping/${id}/items/${data.id}`);
+    const docRef = doc(db, `shopping/${user}`);
 
-    await setDoc(docRef, data).catch((error) => {
+    if (data.length !== 0) {
+      await setDoc(docRef, { items: data }).catch((error) => {
+        dispatch(
+          modalActions.setNotification({
+            status: "Error",
+            message: error.message,
+            isShown: true,
+          })
+        );
+      });
+    }
+  };
+};
+
+export const addWishListData = (user, data) => {
+  return async (dispatch) => {
+    const docRef = doc(db, `wish-list/${user}`);
+
+    await setDoc(docRef, { items: data }).catch((error) => {
       dispatch(
         modalActions.setNotification({
           status: "Error",
@@ -28,41 +46,9 @@ export const addShoppingData = (id, data) => {
   };
 };
 
-export const addWishListData = (id, data) => {
+export const deleteShoppingCart = (user) => {
   return async (dispatch) => {
-    const docRef = doc(db, `wish-list/${id}/items/${data.id}`);
-
-    await setDoc(docRef, data).catch((error) => {
-      dispatch(
-        modalActions.setNotification({
-          status: "Error",
-          message: error.message,
-          isShown: true,
-        })
-      );
-    });
-  };
-};
-
-export const deleteShoppingCart = () => {
-  return async (dispatch) => {
-    const collectionRef = collection(db, "shopping");
-
-    await deleteDoc(collectionRef).catch((error) => {
-      dispatch(
-        modalActions.setNotification({
-          status: "Error",
-          message: error.message,
-          isShown: true,
-        })
-      );
-    });
-  };
-};
-
-export const deleteShoppingItem = (id, itemId) => {
-  return async (dispatch) => {
-    const docRef = doc(db, `shopping/${id}/items/${itemId}`);
+    const docRef = doc(db, "shopping", user);
 
     await deleteDoc(docRef).catch((error) => {
       dispatch(
@@ -92,33 +78,17 @@ export const deleteWishListItem = (id, itemId) => {
   };
 };
 
-export const getShoppingCart = (id) => {
+export const getShoppingCart = (user) => {
   return (dispatch) => {
-    const itemsRef = collection(db, `shopping/${id}/items`);
-
-    onSnapshot(itemsRef, (res) => {
-      if (res.empty) {
+    const itemsDoc = doc(db, `shopping/${user}`);
+    onSnapshot(itemsDoc, (res) => {
+      if (!res._document) {
         return;
       }
-      let arr = [];
-      res.docs.forEach((doc) => {
-        arr.push({ ...doc.data() });
-      });
-      dispatch(cartsActions.setShopping(arr));
-    });
-  };
-};
-
-export const getShoppingSize = (id) => {
-  return (dispatch) => {
-    const itemsRef = collection(db, `shopping/${id}/items`);
-
-    onSnapshot(itemsRef, (res) => {
-      if (res.empty) {
-        return;
+      const data = res.data();
+      if (data.items.length !== 0) {
+        dispatch(cartsActions.setShoppingCart(data.items));
       }
-
-      dispatch(cartsActions.setShoppingSize(res.size));
     });
   };
 };

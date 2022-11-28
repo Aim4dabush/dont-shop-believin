@@ -110,9 +110,7 @@ const Shipping = (props) => {
             value={stateValue}
           >
             <option value="0">Select state:</option>
-            <option value="AL" selected>
-              Alabama
-            </option>
+            <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
             <option value="AR">Arkansas</option>

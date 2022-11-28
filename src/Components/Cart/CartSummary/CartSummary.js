@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //redux
@@ -10,16 +11,26 @@ import styles from "./CartSummary.module.scss";
 const CartSummary = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const shoppingCart = useSelector((state) => state.carts.shopping.cart);
-
-  const total = shoppingCart.reduce((value, item) => {
-    return value + item.subTotal;
-  }, 0);
+  const shoppingCart = useSelector((state) => state.carts.shoppingCart);
+  const total = useSelector((state) => state.checkout.order.total);
 
   const onClickHandler = () => {
     dispatch(checkoutActions.setTotal(total));
     navigate("/checkout", { replace: true });
   };
+
+  useEffect(() => {
+    if (shoppingCart.length > 1) {
+      let total = shoppingCart.reduce((value, item) => {
+        return value + item.subTotal;
+      }, 0);
+
+      dispatch(checkoutActions.setTotal(total));
+    } else {
+      let total = shoppingCart[0].quantity * shoppingCart[0].price;
+      dispatch(checkoutActions.setTotal(total));
+    }
+  }, [dispatch, shoppingCart]);
 
   return (
     <div className={styles.summary}>
