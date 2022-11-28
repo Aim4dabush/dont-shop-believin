@@ -68,10 +68,10 @@ export const getCustomerOrder = (receipt) => {
         dispatch(
           checkoutActions.setOrder({
             address: {
-              street: info.address.street,
-              city: info.address.city,
-              state: info.address.state,
-              zip: info.address.zip,
+              street: info.address?.street,
+              city: info.address?.city,
+              state: info.address?.state,
+              zip: info.address?.zip,
             },
             creditCard: {
               company: info.creditCard?.company,

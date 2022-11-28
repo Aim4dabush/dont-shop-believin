@@ -3,5 +3,10 @@
 .imageWrapper {
   background-color: $secondary;
   height: 200px;
-  width: 30%;
+  width: 50%;
+
+  .image {
+    height: 100%;
+    width: 100%;
+  }
 }

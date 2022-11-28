@@ -6,6 +6,7 @@ import DetailModal from "./modals/productDetail/DetailModal";
 import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/NavBar/NavBar";
 import Notification from "./modals/notification/Notification";
+import Return from "./modals/return/Return";
 import { Outlet } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <CheckoutModal />
       <DetailModal />
       <Notification />
+      <Return />
       <header>
         <NavBar />
       </header>

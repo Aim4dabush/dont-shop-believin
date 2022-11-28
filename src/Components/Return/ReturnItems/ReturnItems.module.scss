@@ -2,9 +2,12 @@
 
 .container {
   align-items: center;
-  color: $secondary;
+  background-color: $secondary;
+  box-shadow: 2px -2px 5px 3px $shadow;
+  color: $primary;
   display: flex;
   flex-direction: column;
+  padding: 1em;
   width: 50%;
 
   .title {

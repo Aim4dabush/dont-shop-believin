@@ -22,11 +22,20 @@
     }
   }
 
+  .error {
+    background-color: $error;
+    border: $error;
+  }
+
   .formInput {
     border: none;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     padding: 0.5em 1em;
     width: 300px;
+  }
+
+  .textError {
+    color: $error;
   }
 }

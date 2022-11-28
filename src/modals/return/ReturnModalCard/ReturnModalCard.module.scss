@@ -3,18 +3,14 @@
 .container {
   align-items: center;
   background-color: $secondary;
-  box-shadow: 2px -2px 5px 3px $shadow;
-  color: $primary;
   display: flex;
   flex-direction: column;
-  height: fit-content;
-  justify-content: space-evenly;
-  padding: 1em;
+  height: 30%;
+  justify-content: center;
+  position: fixed;
+  transform: translateX(117%) translateY(115%);
   width: 30%;
-
-  & h3 {
-    margin: 0;
-  }
+  z-index: 2;
 
   .btn {
     background-color: $primary;
@@ -23,6 +19,7 @@
     color: $secondary;
     font-family: $merriweather;
     font-size: 15px;
+    margin-top: 1em;
     padding: 0.5em 1em;
 
     &:hover {
@@ -31,17 +28,5 @@
       font-weight: $bold;
       text-decoration: underline;
     }
-  }
-
-  hr {
-    width: 100%;
-  }
-
-  .info {
-    padding: 0.5em;
-  }
-
-  .title {
-    text-decoration: underline;
   }
 }

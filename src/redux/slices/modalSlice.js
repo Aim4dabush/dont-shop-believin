@@ -15,6 +15,11 @@ const modalSlice = createSlice({
       title: null,
       isShown: false,
     },
+    returnOrder: {
+      status: null,
+      message: null,
+      isShown: false,
+    },
   },
   reducers: {
     setCheckout(state, action) {
@@ -45,6 +50,20 @@ const modalSlice = createSlice({
     setProductDetailReset(state) {
       state.productDetail = {
         title: null,
+        isShown: false,
+      };
+    },
+    setReturnOrder(state, action) {
+      state.returnOrder = {
+        status: action.payload.status,
+        message: action.payload.message,
+        isShown: action.payload.isShown,
+      };
+    },
+    setReturnOrderReset(state) {
+      state.returnOrder = {
+        status: null,
+        message: null,
         isShown: false,
       };
     },
