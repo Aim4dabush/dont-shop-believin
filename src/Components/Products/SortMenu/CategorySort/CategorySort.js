@@ -9,7 +9,7 @@ const CategorySort = () => {
     <ul className={styles.categoryWrapper}>
       <Category category={"smartphones"}>Smart Phones</Category>
       <Category category={"laptops"}>Laptops</Category>
-      <Category category={"fragrance"}>Fragrances</Category>
+      <Category category={"fragrances"}>Fragrances</Category>
       <Category category={"skincare"}>Skincare</Category>
       <Category category={"groceries"}>Groceries</Category>
       <Category category={"home-decoration"}>Home Decoration</Category>

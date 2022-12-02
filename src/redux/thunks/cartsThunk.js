@@ -96,11 +96,14 @@ export const getShoppingCart = (user) => {
   return async (dispatch) => {
     const itemsDoc = doc(db, `shopping/${user}`);
     onSnapshot(itemsDoc, (res) => {
-      const data = res?.data();
-      if (data.items.length === 0) {
-        dispatch(cartsActions.setShoppingCart([]));
-      } else {
-        dispatch(cartsActions.setShoppingCart(data.items));
+      let data = null;
+      if (res._document) {
+        data = res.data();
+        if (data.items.length === 0) {
+          dispatch(cartsActions.setShoppingCart([]));
+        } else {
+          dispatch(cartsActions.setShoppingCart(data.items));
+        }
       }
     });
   };

@@ -19,7 +19,7 @@ const Products = () => {
   const user = useSelector((state) => state.auth.user.id);
 
   useEffect(() => {
-    if (products.length === 0) {
+    if (products?.length === 0) {
       dispatch(getAllProducts());
     }
     const unsub =
@@ -32,7 +32,7 @@ const Products = () => {
     <div className={styles.container}>
       <SortMenu />
       <div className={styles.cardWrapper}>
-        {isLoading && <p>...Loading</p>}
+        {isLoading && <p className={styles.loading}>...Loading</p>}
         {!isLoading &&
           products?.map((product) => {
             return <ProductCard key={product.id} product={product} />;
