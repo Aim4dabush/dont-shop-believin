@@ -24,7 +24,9 @@ const WishList = () => {
 
   return (
     <div
-      className={`${styles.container} ${wishCart.length <= 3 && styles.height}`}
+      className={`${styles.container} ${
+        wishCart?.length <= 3 && styles.height
+      }`}
     >
       <h1>Wish List</h1>
       <NavigationButtons />
