@@ -163,6 +163,7 @@ const CheckoutForm = () => {
       dispatch(checkoutActions.setGetOrder(true));
       dispatch(deleteShoppingCart(order.user));
       dispatch(cartsActions.setShoppingCart([]));
+      dispatch(cartsActions.setShoppingDataReset());
       cardReset();
       cityReset();
       companyReset();
