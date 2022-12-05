@@ -115,10 +115,10 @@ export const getWishList = (user) => {
 
     onSnapshot(itemsRef, (res) => {
       const data = res.data();
-      if (data.items.length === 0) {
+      if (data?.items.length === 0) {
         dispatch(cartsActions.setWishCart([]));
       } else {
-        dispatch(cartsActions.setWishCart(data.items));
+        dispatch(cartsActions.setWishCart(data?.items));
       }
     });
   };

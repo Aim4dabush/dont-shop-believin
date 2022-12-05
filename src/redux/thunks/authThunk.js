@@ -44,6 +44,7 @@ export const authLogout = () => {
       dispatch(cartsActions.setShoppingDataReset());
       dispatch(cartsActions.setWishDataReset());
       dispatch(productsActions.setProductsReset());
+      clearTimeout();
     });
   };
 };
