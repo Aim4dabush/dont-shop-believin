@@ -1,11 +1,5 @@
 import { db } from "../../firebase/firebaseConfig";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  onSnapshot,
-} from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc } from "firebase/firestore";
 
 //actions
 import { checkoutActions } from "../slices/checkoutSlice";
@@ -62,7 +56,7 @@ export const getCustomerOrder = (receipt) => {
   return (dispatch) => {
     const docRef = doc(db, `order/${receipt}`);
 
-    onSnapshot(docRef, (res) => {
+    getDoc(docRef).then((res) => {
       if (res) {
         let info = res.data();
         dispatch(

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 //components
 import { useNavigate } from "react-router-dom";
 
@@ -5,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { checkoutActions } from "../../../redux/slices/checkoutSlice";
 import { modalActions } from "../../../redux/slices/modalSlice";
+import { getCustomerOrder } from "../../../redux/thunks/checkoutThunk";
 
 //styles
 import styles from "./CheckoutModalCard.module.scss";
@@ -12,9 +15,11 @@ import styles from "./CheckoutModalCard.module.scss";
 const CheckoutModalCard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const receipt = useSelector((state) => state.checkout.order.receipt);
   const order = useSelector((state) => state.checkout.order);
 
   const goToShippingPolicy = () => {
+    dispatch(checkoutActions.setOrderReset());
     dispatch(modalActions.setCheckout(false));
     navigate("/shipping-policy", { replace: true });
   };
@@ -24,6 +29,10 @@ const CheckoutModalCard = () => {
     dispatch(modalActions.setCheckout(false));
     navigate("/products", { replace: true });
   };
+
+  useEffect(() => {
+    dispatch(getCustomerOrder(receipt));
+  }, [dispatch, receipt]);
 
   return (
     <div className={styles.container}>
