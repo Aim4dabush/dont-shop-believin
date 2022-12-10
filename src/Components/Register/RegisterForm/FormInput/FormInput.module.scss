@@ -19,3 +19,11 @@
     width: 45%;
   }
 }
+
+@media (max-width: 412px) {
+  .inputControl {
+    .inputStyle {
+      width: 100%;
+    }
+  }
+}

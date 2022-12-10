@@ -16,5 +16,18 @@
     height: 40%;
     padding: 1em;
     width: 40%;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 912px) {
+  .container {
+    padding: 1em;
+    .card {
+      width: 100%;
+    }
   }
 }
