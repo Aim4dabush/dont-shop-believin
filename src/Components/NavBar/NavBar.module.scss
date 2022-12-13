@@ -11,4 +11,17 @@
   position: fixed;
   width: 100%;
   z-index: 1;
+
+  .bars {
+    font-size: 30px;
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .container {
+    .bars {
+      display: initial;
+    }
+  }
 }
