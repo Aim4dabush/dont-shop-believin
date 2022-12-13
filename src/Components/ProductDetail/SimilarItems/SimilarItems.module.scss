@@ -18,3 +18,11 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 820px) {
+  .similarWrapper {
+    .productsWrapper {
+      flex-wrap: wrap;
+    }
+  }
+}

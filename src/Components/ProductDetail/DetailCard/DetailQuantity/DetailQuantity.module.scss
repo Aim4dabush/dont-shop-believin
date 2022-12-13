@@ -38,3 +38,10 @@
     width: 25px;
   }
 }
+
+@media (max-width: 820px) {
+  .inputControl {
+    align-items: center;
+    flex: 50%;
+  }
+}

@@ -22,10 +22,10 @@ const DetailCard = () => {
           <DetailTags />
           <p className={styles.description}>{product.description}</p>
           <div className={styles.infoWrapper}>
-            <p>Price: ${product.price}</p>
-            <p>Rating: {product.rating}</p>
-            <p>Stock: {product.stock}</p>
-            <DetailQuantity />
+            <p className={styles.info}>Price: ${product.price}</p>
+            <p className={styles.info}>Rating: {product.rating}</p>
+            <p className={styles.info}>Stock: {product.stock}</p>
+            <DetailQuantity className={styles.info} />
           </div>
           <DetailButtons />
         </div>
