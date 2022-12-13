@@ -11,7 +11,7 @@ import { getAllProducts } from "../../../redux/thunks/productsThunk";
 //styles
 import styles from "./SortMenu.module.scss";
 
-const SortMenu = () => {
+const SortMenu = ({ open }) => {
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
@@ -19,18 +19,26 @@ const SortMenu = () => {
   };
 
   return (
-    <div className={styles.sortWrapper}>
+    <div className={styles.menuWrapper}>
       <p className={styles.products} onClick={onClickHandler}>
         All Products
       </p>
-      <p className={styles.title}>Alphabetical</p>
-      <AlphabetSort />
-      <p className={styles.title}>Category</p>
-      <CategorySort />
-      <p className={styles.title}>Price</p>
-      <PriceSort />
-      <p className={styles.title}>Rating</p>
-      <RatingSort />
+      <div className={styles.sortWrapper}>
+        <p className={styles.title}>Alphabetical</p>
+        <AlphabetSort />
+      </div>
+      <div>
+        <p className={styles.title}>Category</p>
+        <CategorySort />
+      </div>
+      <div>
+        <p className={styles.title}>Price</p>
+        <PriceSort />
+      </div>
+      <div>
+        <p className={styles.title}>Rating</p>
+        <RatingSort />
+      </div>
     </div>
   );
 };

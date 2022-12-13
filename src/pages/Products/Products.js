@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 //components
 import ProductCard from "../../Components/Products/ProductCard/ProductCard";
 import SortMenu from "../../Components/Products/SortMenu/SortMenu";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +20,11 @@ const Products = () => {
   const products = useSelector((state) => state.products.productsArr);
   const isLoading = useSelector((state) => state.products.isLoading);
   const user = useSelector((state) => state.auth.user.id);
+  const [open, setOpen] = useState(false);
+
+  const showSortHandler = () => {
+    setOpen((prev) => (prev = !prev));
+  };
 
   useEffect(() => {
     if (products?.length === 0) {
@@ -43,7 +49,10 @@ const Products = () => {
 
   return (
     <div className={styles.container}>
-      <SortMenu />
+      <button className={styles.menu} onClick={showSortHandler}>
+        Sort Menu{open ? <FaAngleDown /> : <FaAngleUp />}
+      </button>
+      {open && <SortMenu />}
       <div className={styles.cardWrapper}>
         {isLoading && <p className={styles.loading}>...Loading</p>}
         {!isLoading &&

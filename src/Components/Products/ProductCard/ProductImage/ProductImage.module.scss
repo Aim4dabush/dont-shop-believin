@@ -11,3 +11,15 @@
     width: 100%;
   }
 }
+
+@media (max-width: 1180px) {
+  .imageWrapper {
+    height: 175px;
+  }
+}
+
+@media (max-width: 820px) {
+  .imageWrapper {
+    height: 125px;
+  }
+}

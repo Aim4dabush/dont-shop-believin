@@ -4,3 +4,10 @@
   margin-top: 0.5em;
   width: 100%;
 }
+
+@media (max-width: 414px) {
+  .infoWrapper {
+    align-items: center;
+    flex-direction: column;
+  }
+}
