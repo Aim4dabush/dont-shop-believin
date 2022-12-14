@@ -115,3 +115,26 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .payment {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .companyControl {
+        width: 100%;
+      }
+
+      .dateControl {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .payment {
+    width: 100%;
+  }
+}

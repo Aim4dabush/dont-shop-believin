@@ -75,3 +75,74 @@
     width: 100%;
   }
 }
+
+@media (max-width: 1368px) {
+  .shipping {
+    height: fit-content;
+
+    .inputControl {
+      .input {
+        display: flex;
+
+        &.email {
+          width: 350px;
+        }
+
+        &.fullName {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .shipping {
+    .inputControl {
+      .input {
+        display: flex;
+
+        &.email {
+          width: 90%;
+        }
+
+        &.fullName {
+          width: 90%;
+        }
+      }
+    }
+
+    .wrapper {
+      & input {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .shipping {
+    width: 100%;
+    .inputControl {
+      .input {
+        width: 100%;
+
+        &.email {
+          width: 100%;
+        }
+
+        &.fullName {
+          width: 100%;
+        }
+
+        &.street {
+          width: 100%;
+        }
+      }
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
