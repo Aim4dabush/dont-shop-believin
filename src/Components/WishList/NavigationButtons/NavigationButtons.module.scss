@@ -29,3 +29,11 @@
     }
   }
 }
+
+@media (max-width: 540px) {
+  .btnWrapper {
+    .btn {
+      font-size: 12px;
+    }
+  }
+}

@@ -18,7 +18,7 @@ const WishCard = ({ product }) => {
         <h2>{product.title}</h2>
         <div className={styles.infoWrapper}>
           <p>Rating: {product.rating}</p>
-          <p>Price: {product.price}</p>
+          <p>Price: ${product.price}</p>
           <WishQuantity
             quantity={itemQuantity}
             setItemQuantity={setItemQuantity}
