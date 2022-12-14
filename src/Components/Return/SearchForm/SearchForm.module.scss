@@ -39,3 +39,11 @@
     color: $error;
   }
 }
+
+@media (max-width: 414px) {
+  .form {
+    .formInput {
+      height: 100%;
+    }
+  }
+}

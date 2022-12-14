@@ -24,3 +24,18 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .card {
+    .mainWrapper {
+      .infoWrapper {
+        align-items: center;
+        flex-direction: column;
+
+        p {
+          padding: 0.5em;
+        }
+      }
+    }
+  }
+}

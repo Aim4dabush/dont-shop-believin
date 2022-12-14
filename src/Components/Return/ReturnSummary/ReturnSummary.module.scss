@@ -45,3 +45,15 @@
     text-decoration: underline;
   }
 }
+
+@media (max-width: 912px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: 100%;
+  }
+}

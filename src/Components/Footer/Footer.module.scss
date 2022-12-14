@@ -3,9 +3,14 @@
 .container {
   align-items: center;
   background-color: $secondary;
+  bottom: 0;
   display: flex;
-  justify-content: space-evenly;
   height: 200px;
+  justify-content: space-evenly;
+  left: 0;
+  margin-top: 7em;
+  position: relative;
+  width: 100%;
   z-index: 1;
 }
 
