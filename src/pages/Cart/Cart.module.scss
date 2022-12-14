@@ -29,3 +29,12 @@
     }
   }
 }
+
+@media (max-width: 912px) {
+  .container {
+    .mainWrapper {
+      align-items: center;
+      flex-direction: column-reverse;
+    }
+  }
+}

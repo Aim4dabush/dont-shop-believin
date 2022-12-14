@@ -31,7 +31,7 @@
 }
 
 @media (max-width: 820px) {
-  .menuWrapper {
+  .show {
     background-color: $secondary;
     color: $primary;
     display: flex;
@@ -45,19 +45,31 @@
     z-index: 1;
 
     .products {
+      font-weight: $bold;
       padding: 0;
+      text-decoration: underline;
     }
 
     .title {
+      font-weight: $bold;
       margin: 0;
+      text-decoration: underline;
     }
+  }
+
+  .menuWrapper {
+    display: none;
   }
 }
 
 @media (max-width: 414px) {
-  .menuWrapper {
+  .show {
     top: 0.3%;
     flex: content;
     flex-wrap: wrap;
+  }
+
+  .menuWrapper {
+    display: none;
   }
 }

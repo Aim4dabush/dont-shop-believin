@@ -44,10 +44,10 @@ const CartSummary = () => {
             <div className={styles.wrapper} key={item.id}>
               <p className={styles.title}>{item.title}</p>
               <p className={styles.subTotal}>SubTotal: ${item.subTotal}</p>
-              <hr />
             </div>
           );
         })}
+      <hr />
       <p>Total: ${total ? total : 0}</p>
       <button className={styles.btn} onClick={onClickHandler}>
         <FaFlagCheckered /> Checkout

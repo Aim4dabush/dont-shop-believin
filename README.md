@@ -47,6 +47,8 @@ Create a full e-commerce website with all functionality except a payment method.
 
 ### What I Learned
 
+I learned a lot about Firebase Auth and Firestore. All my code with Firebase was using their SDK methods. It was a challenge achieving different functionalities like dynamically updating data, getting and saving tokens, logging users out after a set time, etc. It was also my first time using css modules and sass together. I like to challenge myself with using different code and/or styling so I can more diverse with the different languages I could be working with in the real world.
+
 ## Tools
 
 ### Built With
@@ -72,6 +74,6 @@ Create a full e-commerce website with all functionality except a payment method.
 ## Author
 
 - Edward Arasato
-  - Github Profile:
-  - LinkedIn Profile:
-  - Profile Website:
+  - Github Profile: [https://github.com/Aim4dabush](https://github.com/Aim4dabush)
+  - LinkedIn Profile: [https://www.linkedin.com/in/ed-arasato-74614112a/](https://www.linkedin.com/in/ed-arasato-74614112a/)
+  - Profile Website: [https://aim4dabush.github.io/web-profile/](https://aim4dabush.github.io/web-profile/)

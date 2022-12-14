@@ -17,7 +17,7 @@ import { authLogout } from "../../../redux/thunks/authThunk";
 //styles
 import styles from "./LinkList.module.scss";
 
-const LinkList = () => {
+const LinkList = ({ showLinks }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuth = useSelector((state) => state.auth.user.token);
@@ -29,7 +29,7 @@ const LinkList = () => {
   };
 
   return (
-    <ul className={styles.list}>
+    <ul className={showLinks ? styles.show : styles.list}>
       <PageLink link={"/products"}>
         <FaBoxOpen className={styles.icon} /> Products
       </PageLink>

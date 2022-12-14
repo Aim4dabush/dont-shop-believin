@@ -20,10 +20,10 @@ const Products = () => {
   const products = useSelector((state) => state.products.productsArr);
   const isLoading = useSelector((state) => state.products.isLoading);
   const user = useSelector((state) => state.auth.user.id);
-  const [open, setOpen] = useState(false);
+  const [showSort, setShowSort] = useState(false);
 
   const showSortHandler = () => {
-    setOpen((prev) => (prev = !prev));
+    setShowSort((prev) => (prev = !prev));
   };
 
   useEffect(() => {
@@ -50,9 +50,9 @@ const Products = () => {
   return (
     <div className={styles.container}>
       <button className={styles.menu} onClick={showSortHandler}>
-        Sort Menu{open ? <FaAngleDown /> : <FaAngleUp />}
+        Sort Menu{showSort ? <FaAngleDown /> : <FaAngleUp />}
       </button>
-      {open && <SortMenu />}
+      <SortMenu showSort={showSort} />
       <div className={styles.cardWrapper}>
         {isLoading && <p className={styles.loading}>...Loading</p>}
         {!isLoading &&

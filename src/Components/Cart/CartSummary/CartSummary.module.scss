@@ -15,7 +15,14 @@
     text-decoration: underline;
   }
 
+  hr {
+    width: 100%;
+  }
+
   .wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 
     .title {
@@ -46,5 +53,18 @@
       font-weight: $bold;
       text-decoration: underline;
     }
+  }
+}
+
+@media (max-width: 912px) {
+  .summary {
+    margin-bottom: 1em;
+    width: 50%;
+  }
+}
+
+@media (max-width: 540px) {
+  .summary {
+    width: 100%;
   }
 }

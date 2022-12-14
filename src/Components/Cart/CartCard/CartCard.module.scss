@@ -24,3 +24,17 @@
     }
   }
 }
+
+@media (max-width: 912px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+}
