@@ -8,3 +8,11 @@
   height: 200px;
   z-index: 1;
 }
+
+@media (max-width: 414px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+}
