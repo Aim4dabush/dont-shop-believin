@@ -30,3 +30,15 @@
     }
   }
 }
+
+@media (max-width: 912px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 414px) {
+  .container {
+    width: 90%;
+  }
+}

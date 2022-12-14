@@ -16,6 +16,7 @@
     flex-direction: column;
     height: 20%;
     justify-content: center;
+    padding: 1em;
     width: 30%;
     z-index: 2;
 
@@ -42,6 +43,26 @@
           text-decoration: underline;
         }
       }
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 912px) {
+  .container {
+    .card {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .container {
+    .card {
+      width: 90%;
     }
   }
 }
