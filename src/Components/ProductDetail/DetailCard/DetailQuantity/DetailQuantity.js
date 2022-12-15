@@ -9,6 +9,7 @@ const DetailQuantity = () => {
   const dispatch = useDispatch();
   const quantity = useSelector((state) => state.carts.quantity);
 
+  //changes item quantity
   const quantityChangeHandler = (count) => {
     if (count === "increase") {
       dispatch(cartsActions.setIncrement(1));

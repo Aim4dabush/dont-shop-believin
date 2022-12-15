@@ -115,6 +115,7 @@ const CheckoutForm = () => {
 
   let formIsValid = false;
 
+  //checks if inputs are valid
   if (
     cardValid &&
     cityValid &&
@@ -130,6 +131,7 @@ const CheckoutForm = () => {
     formIsValid = true;
   }
 
+  //submits shipping and payment data
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const order = {
@@ -152,6 +154,7 @@ const CheckoutForm = () => {
       user: user,
     };
 
+    //if shipping and payment form is valid then submit data
     if (formIsValid) {
       dispatch(addCustomerOrder(order));
       dispatch(deleteShoppingCart(order.user));

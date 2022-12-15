@@ -9,7 +9,6 @@ import styles from "./ReturnItems.module.scss";
 
 const ReturnItems = () => {
   const order = useSelector((state) => state.checkout.order);
-  console.log(order);
 
   return (
     <div className={styles.container}>

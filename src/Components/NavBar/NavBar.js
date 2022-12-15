@@ -14,6 +14,8 @@ import styles from "./NavBar.module.scss";
 const NavBar = () => {
   const isAuth = useSelector((state) => state.auth.user.token);
   const [showLinks, setShowLinks] = useState(false);
+
+  //hides and shows links on smaller screens
   const showLinksHandler = () => {
     setShowLinks((prev) => (prev = !prev));
   };

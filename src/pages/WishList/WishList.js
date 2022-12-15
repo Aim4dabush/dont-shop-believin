@@ -17,6 +17,7 @@ const WishList = () => {
   const wishCart = useSelector((state) => state.carts.wishCart);
 
   useEffect(() => {
+    //gets wish list data from firebase
     const unsub = dispatch(getWishList(user));
 
     return () => unsub;

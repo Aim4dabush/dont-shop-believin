@@ -39,13 +39,16 @@ const RegisterForm = () => {
 
   let formIsValid = false;
 
+  //checks if inputs are valid
   if (emailValid && passwordValid) {
     formIsValid = true;
   }
 
+  //submits registration data
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
+    //if form is valid submit data
     if (formIsValid) {
       dispatch(
         newUserRegistration(emailRef.current.value, passwordRef.current.value)
@@ -57,6 +60,7 @@ const RegisterForm = () => {
     }
   };
 
+  //checks for errors and use error styles
   const emailClassName = emailError ? styles.error : null;
   const passwordClassName = passwordError ? styles.error : null;
 

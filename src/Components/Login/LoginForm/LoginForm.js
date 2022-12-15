@@ -19,6 +19,7 @@ const LoginForm = () => {
   const passwordRef = useRef();
   const isAuth = useSelector((state) => state.auth.user.token);
 
+  //sends email and password to auth thunk
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -28,6 +29,7 @@ const LoginForm = () => {
   };
 
   useEffect(() => {
+    //if user is logged in navigates to products page
     if (isAuth) {
       navigate("/products", { replace: true });
     }

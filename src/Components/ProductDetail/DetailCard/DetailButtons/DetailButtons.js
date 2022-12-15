@@ -24,7 +24,10 @@ const DetailButtons = () => {
   const user = useSelector((state) => state.auth.user.id);
   const wishData = useSelector((state) => state.carts.wishData);
 
+  //adds item to cart
   const addCartHandler = () => {
+    //checks to see if there are items in cart
+    //if items exist then check items else add first item to cart
     if (Array.isArray(shoppingData)) {
       const item = shoppingData.find((item) => {
         return item.id === product.id;
@@ -33,6 +36,8 @@ const DetailButtons = () => {
         return item.id === product.id;
       });
 
+      //checks to see if item exists
+      //if item doesn't exist add to cart else replace item in cart
       if (index === -1) {
         const data = {
           id: product.id,
@@ -81,12 +86,17 @@ const DetailButtons = () => {
     dispatch(cartsActions.setQuantityReset());
   };
 
+  //add item to wish list
   const addWishHandler = () => {
+    //checks to see if there items in wish list
+    //if items exist then check wish list else add first item to wish list
     if (Array.isArray(wishData)) {
       const index = wishData.findIndex((item) => {
         return item.id === product.id;
       });
 
+      //checks if item exists
+      //if item doesn't exists then add item to wish list else replace item in wish list
       if (index === -1) {
         const data = {
           date: {
@@ -145,6 +155,7 @@ const DetailButtons = () => {
   };
 
   useEffect(() => {
+    //sends data to firebase
     if (loadData) {
       dispatch(addShoppingData(user, shoppingData));
       dispatch(addWishListData(user, wishData));

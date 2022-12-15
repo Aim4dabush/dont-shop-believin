@@ -17,11 +17,13 @@ const ProductDetail = () => {
   const { id } = useParams();
   const products = useSelector((state) => state.products.productsArr);
 
+  //gets item using url params
   const item = products.find((item) => {
     return item.id === parseInt(id);
   });
 
   useEffect(() => {
+    //sets product data state
     dispatch(cartsActions.setProduct(item));
   }, [item, dispatch]);
 

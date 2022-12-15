@@ -23,6 +23,8 @@ const LinkList = ({ showLinks }) => {
   const isAuth = useSelector((state) => state.auth.user.token);
   const shoppingCart = useSelector((state) => state.carts.shoppingCart);
   const wishCart = useSelector((state) => state.carts.wishCart);
+
+  //executes logout from auth thunk and navigates back to welcome page
   const onClickHandler = () => {
     dispatch(authLogout());
     navigate("/", { replace: true });

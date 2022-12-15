@@ -2,6 +2,7 @@
 import styles from "./CartQuantity.module.scss";
 
 const CartQuantity = ({ quantity, setItemQuantity, title }) => {
+  //change quantity of item
   const onClickHandler = (command) => {
     if (command === "increase") {
       setItemQuantity((prev) => (prev = prev + 1));

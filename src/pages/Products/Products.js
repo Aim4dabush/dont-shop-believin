@@ -22,15 +22,18 @@ const Products = () => {
   const user = useSelector((state) => state.auth.user.id);
   const [showSort, setShowSort] = useState(false);
 
+  //shows sort menu on smaller screens
   const showSortHandler = () => {
     setShowSort((prev) => (prev = !prev));
   };
 
   useEffect(() => {
+    //gets products from dummyjson api
     if (products?.length === 0) {
       dispatch(getAllProducts());
     }
 
+    //gets wish list and shopping cart data from firebase
     const unsub =
       (dispatch(getWishList(user)), dispatch(getShoppingCart(user)));
 
@@ -38,6 +41,7 @@ const Products = () => {
   }, [dispatch, products, user]);
 
   useEffect(() => {
+    //logout user after a certain time has passed
     if (user !== null) {
       setTimeout(() => {
         dispatch(authLogout());

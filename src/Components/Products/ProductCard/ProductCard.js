@@ -11,6 +11,7 @@ import styles from "./ProductCard.module.scss";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
+  //navigates to product details page
   const onClickHandler = () => {
     navigate(`/products/${product.id}`);
   };

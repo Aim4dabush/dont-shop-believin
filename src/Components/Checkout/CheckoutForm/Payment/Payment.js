@@ -20,6 +20,7 @@ const Payment = (props) => {
   const { exp, expError, expValue, expOnBlur, expOnChange } = props.exp;
   const { name, nameError, nameValue, nameOnBlur, nameOnChange } = props.name;
 
+  //checks for errors and use error styles
   const cardClassName = cardError ? styles.error : null;
   const companyClassName = companyError ? styles.error : null;
   const expClassName = expError ? styles.error : null;

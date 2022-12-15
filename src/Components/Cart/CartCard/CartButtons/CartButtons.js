@@ -17,6 +17,8 @@ const CartButtons = ({ quantity, product }) => {
   const loadData = useSelector((state) => state.carts.loadData);
   const shoppingData = useSelector((state) => state.carts.shoppingData);
   const user = useSelector((state) => state.auth.user.id);
+
+  //updates shopping cart data
   const addCartHandler = () => {
     const item = shoppingData.find((item) => {
       return item.id === product.id;
@@ -25,6 +27,8 @@ const CartButtons = ({ quantity, product }) => {
       return item.id === product.id;
     });
 
+    //check if item is in cart
+    //if item doesn't exist then add to cart else replace item in cart
     if (index === -1) {
       const data = {
         id: product.id,
@@ -54,6 +58,7 @@ const CartButtons = ({ quantity, product }) => {
     dispatch(cartsActions.setLoadData(true));
   };
 
+  //delete item from cart
   const deleteItemHandler = () => {
     const index = shoppingData.findIndex((item) => {
       return item.id === product.id;
@@ -64,6 +69,7 @@ const CartButtons = ({ quantity, product }) => {
   };
 
   useEffect(() => {
+    //updates shopping cart data
     if (loadData) {
       dispatch(addShoppingData(user, shoppingData));
       dispatch(cartsActions.setLoadData(false));

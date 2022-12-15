@@ -17,10 +17,12 @@ const Cart = () => {
   const user = useSelector((state) => state.auth.user.id);
 
   useEffect(() => {
+    //get shopping cart data from firebase
     const unsub = dispatch(getShoppingCart(user));
 
     return () => unsub;
   }, [dispatch, user]);
+
   return (
     <div
       className={`${styles.container} ${

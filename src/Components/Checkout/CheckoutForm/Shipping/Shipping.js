@@ -21,6 +21,7 @@ const Shipping = (props) => {
     props.street;
   const { zip, zipError, zipOnBlur, zipOnChange, zipValue } = props.zip;
 
+  //checks for errors and use error styles
   const cityClassName = cityError ? styles.error : null;
   const emailClassName = emailError ? styles.error : null;
   const fullNameClassName = fullNameError ? styles.error : null;

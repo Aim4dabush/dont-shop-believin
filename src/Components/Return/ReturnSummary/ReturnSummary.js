@@ -10,6 +10,7 @@ const ReturnSummary = () => {
   const dispatch = useDispatch();
   const order = useSelector((state) => state.checkout.order);
 
+  //refunds customers order
   const returnOrderHandler = () => {
     dispatch(deleteOrder(order.receipt));
     dispatch(
