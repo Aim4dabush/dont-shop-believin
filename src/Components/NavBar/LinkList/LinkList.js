@@ -29,7 +29,7 @@ const LinkList = ({ showLinks }) => {
   };
 
   return (
-    <ul className={showLinks ? styles.show : styles.list}>
+    <ul className={showLinks ? styles.list : styles.show}>
       <PageLink link={"/products"}>
         <FaBoxOpen className={styles.icon} /> Products
       </PageLink>
